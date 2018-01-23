@@ -45,11 +45,11 @@ jobs:
             git checkout ${TRAVIS_BRANCH};
             COMMIT_MESSAGE=$(git log -n 1 --pretty=format:"%B");
             if [[ "${COMMIT_MESSAGE}" == *"[major release]"* ]]; then
-              ./scripts/versioning/iterate major -i -q;
+              ./.scripts/versioning/iterate major -i -q;
             elif [[ "${COMMIT_MESSAGE}" == *"[minor release]"* ]]; then
-              ./scripts/versioning/iterate minor -i -q;
+              ./.scripts/versioning/iterate minor -i -q;
             else
-              ./scripts/versioning/iterate -i -q;
+              ./.scripts/versioning/iterate -i -q;
             fi;
             git push -q https://${GH_USERNAME}:${GH_TOKEN}@github.com/govtechsg/cicd-images.git --tags;
           fi;
