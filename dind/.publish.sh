@@ -4,7 +4,7 @@ REPOSITORY_URL=$1;
 TAG="${REPOSITORY_URL}-next";
 TAG_LATEST="${REPOSITORY_URL}-latest";
 
-VERSIONS=$(docker run ${TAG});
+VERSIONS=$(docker run --entrypoint="version-info" ${TAG});
 VERSION_GIT=$(printf "${VERSIONS}" | grep git | cut -f 2 -d ':');
 VERSION_DOCKER=$(printf "${VERSIONS}" | grep 'docker:' | cut -f 2 -d ':');
 VERSION_DOCKER_COMPOSE=$(printf "${VERSIONS}" | grep docker-compose | cut -f 2 -d ':');

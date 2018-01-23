@@ -16,4 +16,3 @@ RUN apk add --update --upgrade --no-cache ${APK_DEPENDENCIES} \
     && rm -rf ${PATHS_TO_REMOVE} \
     && chmod +x /usr/bin/version-info
 WORKDIR ["/"]
-ENTRYPOINT ["version-info"]

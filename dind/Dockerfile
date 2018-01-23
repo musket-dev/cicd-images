@@ -16,5 +16,4 @@ RUN apk add --update --upgrade --no-cache ${APK_DEPENDENCIES} \
     && alias md5='md5sum' \
     && rm -rf ${PATHS_TO_REMOVE} \
     && chmod +x /usr/bin/version-info
-ENTRYPOINT ["version-info"]
 VOLUME ["/var/run/docker.sock", "/cache"]
