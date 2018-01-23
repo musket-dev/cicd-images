@@ -34,12 +34,12 @@ IMAGE_NAME="dind"
 ```
 
 ### For Publishing
-The publish script sends your built image to DockerHub and relies on the `./.build.sh` script being run prior to it. The general format of usage:
+The publish script in each directory sends your built image to DockerHub and relies on the `./.scripts/.build.sh` script being run prior to it. The general format of usage:
 
 ```bash
 DH_REPO=__URL_TO_REPO__
 IMAGE_NAME=__DIRECTORY_NAME__
-./.scropts/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
 ```
 
 A corresponding example to upload to a DockerHub repository at `yourusername/yourimage:dind-latest`:
@@ -47,5 +47,7 @@ A corresponding example to upload to a DockerHub repository at `yourusername/you
 ```bash
 DH_REPO="yourusername/yourimage"
 IMAGE_NAME="dind"
-./.scropts/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
 ```
+
+Each directory and type of image has its own publish script because of the different ways they are versioned.
