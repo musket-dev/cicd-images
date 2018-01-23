@@ -22,13 +22,13 @@ jobs:
         - IMAGE_NAME: dind
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
-        - ./.scropts/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+        - ./.scripts/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
     - stage: build_publish
       env:
         - IMAGE_NAME: awscli
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
-        - ./.scropts/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+        - ./.scripts/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
     - stage: release
       nev:
         - TO: github
