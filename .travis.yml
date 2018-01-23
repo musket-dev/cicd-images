@@ -19,17 +19,31 @@ jobs:
   include:
     - stage: build_publish
       env:
-        - IMAGE_NAME=dind
+        - IMAGE_NAME: dind
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
         - ./.scropts/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
     - stage: build_publish
       env:
-        - IMAGE_NAME=awscli
+        - IMAGE_NAME: awscli
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
         - ./.scropts/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
     - stage: release
+      nev:
+        - TO: github
       script:
-        - git checkout ${TRAVIS_BRANCH}
-        - ./.scripts/versioning/iterate -q
+        - set -e
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            git checkout ${TRAVIS_BRANCH};
+            COMMIT_MESSAGE=$(git log -n 1 --pretty=format:"%B");
+            if [[ "${COMMIT_MESSAGE}" == *"[major release]"* ]]; then
+              ./scripts/versioning/iterate major -i -q;
+            elif [[ "${COMMIT_MESSAGE}" == *"[minor release]"* ]]; then
+              ./scripts/versioning/iterate minor -i -q;
+            else
+              ./scripts/versioning/iterate -i -q;
+            fi;
+            git push -q https://${GH_USERNAME}:${GH_TOKEN}@github.com/govtechsg/cicd-images.git --tags;
+          fi;
