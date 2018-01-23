@@ -9,7 +9,7 @@ notifications:
   email:
     - dev@joeir.net
 stages:
-  - build_publish
+  - publish
   - release
 before_script:
   - docker login -u "${DH_USERNAME}" -p "${DH_PASSWORD}";
@@ -17,26 +17,26 @@ after_script:
   - docker logout
 jobs:
   include:
-    - stage: build_publish
+    - stage: publish
       env:
         - IMAGE_NAME: awscli
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
         - ./.scripts/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
-    - stage: build_publish
+    - stage: publish
       env:
         - IMAGE_NAME: dind
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
         - ./.scripts/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
-    - stage: build_publish
+    - stage: publish
       env:
         - IMAGE_NAME: gkecli
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
         - ./.scripts/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
     - stage: release
-      nev:
+      env:
         - TO: github
       script:
         - set -e
