@@ -22,19 +22,19 @@ jobs:
         - IMAGE_NAME: awscli
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
-        - ./.scripts/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
     - stage: publish
       env:
         - IMAGE_NAME: dind
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
-        - ./.scripts/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
     - stage: publish
       env:
         - IMAGE_NAME: gkecli
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
-        - ./.scripts/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
     - stage: release
       env:
         - TO: github
