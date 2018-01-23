@@ -1,0 +1,24 @@
+sudo: required
+language: bash
+services:
+  - docker
+branches:
+  only:
+    - master
+notifications:
+  email:
+    - dev@joeir.net
+stages:
+  - build_publish
+before_script:
+  - docker login -u "${DH_USERNAME}" -p "${DH_PASSWORD}";
+after_script:
+  - docker logout
+jobs:
+  include:
+    - stage: build_publish
+      env:
+        - IMAGE_NAME=dind
+      script:
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
+        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
