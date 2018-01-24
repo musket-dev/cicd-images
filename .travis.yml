@@ -35,6 +35,12 @@ jobs:
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
         - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+    - stage: publish
+      env:
+        - IMAGE_NAME: karma
+      script:
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
+        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
     - stage: release
       env:
         - TO: github
