@@ -23,7 +23,7 @@ else
   printf "Pushing [${EXISTENCE_REPO_URL}]... ";
   docker tag ${TAG} ${EXISTENCE_REPO_URL};
   docker push ${EXISTENCE_REPO_URL};
-  printf "Pushing [${DOCKER_VERSION_REPO_URL}]... ";
-  docker tag ${TAG} ${DOCKER_VERSION_REPO_URL};
-  docker push ${DOCKER_VERSION_REPO_URL};
+  printf "Pushing [${CHROMIUM_VERSION_REPO_URL}]... ";
+  docker tag ${TAG} ${CHROMIUM_VERSION_REPO_URL};
+  docker push ${CHROMIUM_VERSION_REPO_URL};
 fi;

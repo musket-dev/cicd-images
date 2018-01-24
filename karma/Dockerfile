@@ -1,7 +1,6 @@
 ARG REPO_TAG="8.9.4-alpine"
 FROM node:${REPO_TAG}
-LABEL maintainer="zephinzer" \
-      email="dev-at-joeir-dot-net" \
+LABEL maintainer="zephinzer <dev-at-joeir-dot-net>" \
       description="Image used for running Karma with ChromeHeadless browser. Requires the --no-sandbox flag to be specified to work."
 ENV APK_DEPENDENCIES="bash curl vim chromium zlib-dev xvfb dbus mesa-dri-swrast udev ttf-freefont python make g++" \
     CHROME_BIN=/usr/bin/chromium-browser \
