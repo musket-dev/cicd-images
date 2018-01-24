@@ -26,21 +26,52 @@ The images are found in the [DockerHub registry](https://hub.docker.com/r/govtec
 Canonical Tag: `awscli-<AWS_CLI_VERSION>`  
 Latest URL: `govtechsg/cicd-images:awscli-latest`
 
+##### Notes
+Set the following environment variables to your AWS credentials to allow the AWS CLI tool to connect.
+
+```bash
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+AWS_DEFAULT_REGION
+```
+
+- https://docs.aws.amazon.com/cli/latest/userguide/cli-environment.html
+
 #### `dind`
 Canonical Tag: `dind-<DOCKER_VERSION>`  
 Latest URL: `govtechsg/cicd-images:dind-latest`
+
+##### Notes
+You will need to configure this image so that the host file at path `/var/run/docker.sock` is mapped to the `/var/run/docker.sock` in the container.
+
+- https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
+- https://www.develves.net/blogs/asd/2016-05-27-alternative-to-docker-in-docker/
+- https://getintodevops.com/blog/the-simple-way-to-run-docker-in-docker-for-ci
 
 #### `gkecli`
 Canonical Tag: `gkecli-<GOOGLE_SDK_VERSION>`  
 Latest URL: `govtechsg/cicd-images:gkecli-latest`
 
+##### Notes
+An additional child image, or a script should be added to this to set Google credentials and retrieve the Kubernetes configurations.
+
+- https://cloud.google.com/kubernetes-engine/docs/quickstart
+
 #### `karma`
 Canonical Tag: `karma-<CHROMIUM_VERSION>`  
 Latest URL: `govtechsg/cicd-images:karma-latest`
 
+##### Notes
+Karma is not included in the `karma` image, this image only provides the base for it to run ChromeHeadless. Remember to include the `--no-sandbox` flag in the Karma configuration.
+
 #### `node`
-Canonical Tag: `node-v<NODE_VERSION>`  
-Latest URL: `govtechsg/cicd-images:node-latest`
+Canonical Tag: `node-<NODE_VERSION>`  
+Latest URL: `govtechsg/cicd-images:node<NODE_MAJOR_VERSION>-latest`
+
+##### Notes
+All LTS versions of Node, and the latest major version (LTS or otherwise) are builit.
+
+- https://github.com/nodejs/Release
 
 ## Other Uses
 Images specified here can be uploaded to other repositories if you so wish. The commands are:
