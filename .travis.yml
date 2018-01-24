@@ -41,6 +41,34 @@ jobs:
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
         - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+    - stage: publish
+      env:
+        - IMAGE_NAME: node
+        - NODE_MAJOR_VERSION: 4
+      script:
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" NODE_MAJOR_VERSION=${NODE_MAJOR_VERSION}
+        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+    - stage: publish
+      env:
+        - IMAGE_NAME: node
+        - NODE_MAJOR_VERSION: 6
+      script:
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" NODE_MAJOR_VERSION=${NODE_MAJOR_VERSION}
+        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+    - stage: publish
+      env:
+        - IMAGE_NAME: node
+        - NODE_MAJOR_VERSION: 8
+      script:
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" NODE_MAJOR_VERSION=${NODE_MAJOR_VERSION}
+        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+    - stage: publish
+      env:
+        - IMAGE_NAME: node
+        - NODE_MAJOR_VERSION: 9
+      script:
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" NODE_MAJOR_VERSION=${NODE_MAJOR_VERSION}
+        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
     - stage: release
       env:
         - TO: github

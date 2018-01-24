@@ -1,0 +1,7 @@
+#!/bin/sh
+VERSION_NODE="$(node -v)";
+VERSION_NPM="$(npm -v)";
+VERSION_YARN="$(yarn --verson)";
+printf "node:${VERSION_NODE}\n";
+printf "npm:${VERSION_NPM}\n";
+printf "yarn:${VERSION_YARN}\n";

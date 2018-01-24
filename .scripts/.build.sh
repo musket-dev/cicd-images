@@ -15,7 +15,7 @@ fi;
 
 REPOSITORY_URL=${IMAGE_URL}:${IMAGE_TAG};
 NEXT_TAG="${REPOSITORY_URL}-next";
-if [ "${BUILD_ARGS}" = "" ]; then
+if [ "${BUILD_ARGS}" != "" ]; then
   ADDITIONAL_BUILD_ARGS="$(echo "${BUILD_ARGS}" | sed -e $'s|,|\\\n|g' | xargs -I @ echo '--build-arg @')";
 else
   ADDITIONAL_BUILD_ARGS="";
