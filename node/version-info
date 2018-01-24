@@ -1,9 +1,9 @@
 #!/bin/sh
-VERSION_NODE="$(node -v | cut -f 1 -d 'v')";
+VERSION_NODE="$(node -v | cut -f 2 -d 'v')";
 printf "node:${VERSION_NODE}\n";
 
 VERSION_NODE_MAJOR="$(printf ${VERSION_NODE} | cut -f 1 -d '.')";
-printf "node_maj:${VERSION_NODE_MAJOR}\n";
+printf "node_major:${VERSION_NODE_MAJOR}\n";
 
 VERSION_NODE_MINOR="$(printf ${VERSION_NODE} | cut -f 2 -d '.')";
 printf "node_minor:${VERSION_NODE_MINOR}\n";
