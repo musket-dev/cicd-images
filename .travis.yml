@@ -49,6 +49,12 @@ jobs:
         - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
     - stage: publish
       env:
+        - IMAGE_NAME: kubectl
+      script:
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
+        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+    - stage: publish
+      env:
         - IMAGE_NAME: node
         - NODE_MAJOR_VERSION: 4
       script:
