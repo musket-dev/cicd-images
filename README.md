@@ -4,7 +4,7 @@
 
 This repository is a collection of Docker images we use internally for continuous integration/delivery pipelines.
 
-Daily builds are run against these images and automatically sent to our DockerHub at:
+Daily builds are run against these images and automatically sent to our DockerHub repository at:
 
 https://hub.docker.com/r/govtechsg/cicd-images
 
@@ -12,6 +12,35 @@ https://hub.docker.com/r/govtechsg/cicd-images
 
 - Amazon Web Services CLI (`awscli`)
 - Docker-in-Docker (`dind`)
+- Google Kubernetes Engine CLI (`gkecli`)
+- Karma Test Runner (`karma`)
+- Node.js (`node`)
+
+### Release Notes
+
+The images are found in the [DockerHub registry](https://hub.docker.com/r/govtechsg/cicd-images), and the names of the different types of images are added as a tag. For example given a type of image called `xyz`, it will be available under the repository URL `govtechsg/cicd-images:xyz-latest`. Specific versions can be found in the [DockerHub Tags page](https://hub.docker.com/r/govtechsg/cicd-images/tags/)
+
+### Usage/Descriptions
+
+#### `awscli`
+Canonical Tag: `awscli-<AWS_CLI_VERSION>`  
+Latest URL: `govtechsg/cicd-images:awscli-latest`
+
+#### `dind`
+Canonical Tag: `dind-<DOCKER_VERSION>`  
+Latest URL: `govtechsg/cicd-images:dind-latest`
+
+#### `gkecli`
+Canonical Tag: `gkecli-<GOOGLE_SDK_VERSION>`  
+Latest URL: `govtechsg/cicd-images:gkecli-latest`
+
+#### `karma`
+Canonical Tag: `karma-<CHROMIUM_VERSION>`  
+Latest URL: `govtechsg/cicd-images:karma-latest`
+
+#### `node`
+Canonical Tag: `node-v<NODE_VERSION>`  
+Latest URL: `govtechsg/cicd-images:node-latest`
 
 ## Other Uses
 Images specified here can be uploaded to other repositories if you so wish. The commands are:
