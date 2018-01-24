@@ -19,6 +19,12 @@ jobs:
   include:
     - stage: publish
       env:
+        - IMAGE_NAME: alpine
+      script:
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
+        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+    - stage: publish
+      env:
         - IMAGE_NAME: awscli
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
