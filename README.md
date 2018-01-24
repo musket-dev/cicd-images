@@ -24,7 +24,7 @@ The images are found in the [DockerHub registry](https://hub.docker.com/r/govtec
 ### Usage/Descriptions
 
 #### `alpine`
-Canonical Tag: `alpine-<AWS_CLI_VERSION>`  
+Canonical Tag: `alpine-<ALPINE_VERSION>`  
 Latest URL: `govtechsg/cicd-images:alpine-latest`
 
 ##### Notes
