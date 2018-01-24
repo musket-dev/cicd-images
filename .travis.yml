@@ -21,71 +21,101 @@ jobs:
       env:
         - IMAGE_NAME: alpine
       script:
-        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
-        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}";
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+          fi;
     - stage: publish
       env:
         - IMAGE_NAME: awscli
       script:
-        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
-        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}";
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+          fi;
     - stage: publish
       env:
         - IMAGE_NAME: dind
       script:
-        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
-        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}";
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+          fi;
     - stage: publish
       env:
         - IMAGE_NAME: gkecli
       script:
-        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
-        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}";
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+          fi;
     - stage: publish
       env:
         - IMAGE_NAME: karma
       script:
-        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
-        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}";
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+          fi;
     - stage: publish
       env:
         - IMAGE_NAME: kubectl
       script:
-        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}"
-        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}";
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+          fi;
     - stage: publish
       env:
         - IMAGE_NAME: node
         - NODE_MAJOR_VERSION: 4
       script:
-        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" NODE_MAJOR_VERSION=${NODE_MAJOR_VERSION}
-        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" NODE_MAJOR_VERSION=${NODE_MAJOR_VERSION};
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+          fi;
     - stage: publish
       env:
         - IMAGE_NAME: node
         - NODE_MAJOR_VERSION: 6
       script:
-        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" NODE_MAJOR_VERSION=${NODE_MAJOR_VERSION}
-        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" NODE_MAJOR_VERSION=${NODE_MAJOR_VERSION};
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+          fi;
     - stage: publish
       env:
         - IMAGE_NAME: node
         - NODE_MAJOR_VERSION: 8
       script:
-        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" NODE_MAJOR_VERSION=${NODE_MAJOR_VERSION}
-        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" NODE_MAJOR_VERSION=${NODE_MAJOR_VERSION};
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+          fi;
     - stage: publish
       env:
         - IMAGE_NAME: node
         - NODE_MAJOR_VERSION: 9
       script:
-        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" NODE_MAJOR_VERSION=${NODE_MAJOR_VERSION}
-        - ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}"
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" NODE_MAJOR_VERSION=${NODE_MAJOR_VERSION};
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+          fi;
     - stage: release
       env:
         - TO: github
       script:
-        - set -e
+        - set -e;
         - |
           if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
             git checkout ${TRAVIS_BRANCH};
