@@ -11,6 +11,7 @@ ENV APK_DEPENDENCIES="bash curl jq vim git openssh gnupg lighttpd vsftpd lftp" \
       /var/cache/apk/* \
       ~/.cache/pip/* \
       /var/cache/misc/*"
+USER root
 WORKDIR /app
 COPY ./version-info /usr/bin/
 RUN apk add --update --upgrade --no-cache ${APK_DEPENDENCIES} \
@@ -23,4 +24,3 @@ RUN apk add --update --upgrade --no-cache ${APK_DEPENDENCIES} \
   && echo 'alias ll="ls -alg"' >> ~/.profile \
   && echo 'export PS1="\D{%Y%m%d%H%M%S}|\h \w $ "' >> ~/.profile \
   && echo 'source ~/.profile' > ~/.bashrc
-USER app

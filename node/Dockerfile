@@ -2,8 +2,7 @@ ARG NODE_MAJOR_VERSION="9"
 FROM node:${NODE_MAJOR_VERSION}-alpine
 LABEL maintainer="zephinzer <dev-at-joeir-dot-net>" \
       description="Node ${NODE_MAJOR_VERSION}.* container for use in CI pipelines"
-ENV APK_DEPENDENCIES="bash curl git jq openssh python py-pip make docker g++" \
-    PIP_DEPENDENCIES="docker-compose" \
+ENV APK_DEPENDENCIES="bash curl git jq vim make g++" \
     PATHS_TO_REMOVE="\
       /usr/include/* \
       /usr/share/man/* \
@@ -14,6 +13,5 @@ WORKDIR ["/"]
 USER root
 COPY ./version-info /usr/bin
 RUN apk add --update --upgrade --no-cache ${APK_DEPENDENCIES} \
-    && pip --no-cache-dir install ${PIP_DEPENDENCIES} \
     && chmod +x /usr/bin/version-info \
     && rm -rf ${PATHS_TO_REMOVE}

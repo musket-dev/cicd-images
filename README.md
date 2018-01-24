@@ -18,8 +18,16 @@ https://hub.docker.com/r/govtechsg/cicd-images
 - Node.js (`node`)
 
 ### Release Notes
-
 The images are found in the [DockerHub registry](https://hub.docker.com/r/govtechsg/cicd-images), and the names of the different types of images are added as a tag. For example given a type of image called `xyz`, it will be available under the repository URL `govtechsg/cicd-images:xyz-latest`. Specific versions can be found in the [DockerHub Tags page](https://hub.docker.com/r/govtechsg/cicd-images/tags/)
+
+### Universal Tooling
+All images will contain some tools essential for most operations that will happen in a continuous integration/delivery pipeline. These tools are:
+
+- `bash`
+- `curl`
+- `jq`
+- `vim`
+- `git`
 
 ### Usage/Descriptions
 
