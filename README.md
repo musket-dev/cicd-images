@@ -10,6 +10,7 @@ https://hub.docker.com/r/govtechsg/cicd-images
 
 ## Catalog (Alphabetical Order)
 
+- Alpine Linux (`alpine`)
 - Amazon Web Services CLI (`awscli`)
 - Docker-in-Docker (`dind`)
 - Google Kubernetes Engine CLI (`gkecli`)
@@ -21,6 +22,13 @@ https://hub.docker.com/r/govtechsg/cicd-images
 The images are found in the [DockerHub registry](https://hub.docker.com/r/govtechsg/cicd-images), and the names of the different types of images are added as a tag. For example given a type of image called `xyz`, it will be available under the repository URL `govtechsg/cicd-images:xyz-latest`. Specific versions can be found in the [DockerHub Tags page](https://hub.docker.com/r/govtechsg/cicd-images/tags/)
 
 ### Usage/Descriptions
+
+#### `alpine`
+Canonical Tag: `alpine-<AWS_CLI_VERSION>`  
+Latest URL: `govtechsg/cicd-images:alpine-latest`
+
+##### Notes
+We use Alpine for our production deployments, only makes sense to run stuff in Alpine. This image contains common tools in pipelines and should serve most general needs. If you need more pacakges, feel free to submit a pull request with the required APK packages.
 
 #### `awscli`
 Canonical Tag: `awscli-<AWS_CLI_VERSION>`  

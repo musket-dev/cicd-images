@@ -1,5 +1,5 @@
 #!/bin/sh
 VERSION_ALPINE="$(cat /etc/alpine-release)";
 VERSION_GIT="$(git --version | cut -f 3 -d ' ')";
-printf "alpine:${VERSION_CHROMIUM}\n";
+printf "alpine:${VERSION_ALPINE}\n";
 printf "git:${VERSION_GIT}\n";
