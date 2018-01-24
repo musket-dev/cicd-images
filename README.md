@@ -15,6 +15,7 @@ https://hub.docker.com/r/govtechsg/cicd-images
 - Docker-in-Docker (`dind`)
 - Google Kubernetes Engine CLI (`gkecli`)
 - Karma Test Runner (`karma`)
+- Kubernetes Client (`kubectl`)
 - Node.js (`node`)
 
 ### Release Notes
@@ -79,6 +80,13 @@ Latest URL: `govtechsg/cicd-images:karma-latest`
 
 ##### Notes
 Karma is not included in the `karma` image, this image only provides the base for it to run ChromeHeadless. Remember to include the `--no-sandbox` flag in the Karma configuration.
+
+#### `kubectl`
+Canonical Tag: `kubectl-<KUBECTL_VERSION>`  
+Latest URL: `govtechsg/cicd-images:kubectl-latest`
+
+##### Notes
+For use when there's a deployment to a Kubernetes deployment.
 
 #### `node`
 Canonical Tag: `node-<NODE_VERSION>`  

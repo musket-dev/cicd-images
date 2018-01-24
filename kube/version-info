@@ -1,0 +1,7 @@
+#!/bin/sh
+VERSION_ALPINE="$(cat /etc/alpine-release)";
+VERSION_GIT="$(git --version | cut -f 3 -d ' ')";
+VERSION_KUBECTL="$(kubectl version --client --output='json' | jq '.clientVersion.gitVersion' | jq -r)";
+printf "alpine:${VERSION_ALPINE}\n";
+printf "git:${VERSION_GIT}\n";
+printf "kubectl:${VERSION_KUBECTL}\n";
