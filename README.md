@@ -17,6 +17,7 @@ https://hub.docker.com/r/govtechsg/cicd-images
 - Karma Test Runner (`karma`)
 - Kubernetes Client (`kubectl`)
 - Node.js (`node`)
+- Version Tagging Scripts (`vtscripts`)
 
 ### Release Notes
 The images are found in the [DockerHub registry](https://hub.docker.com/r/govtechsg/cicd-images), and the names of the different types of images are added as a tag. For example given a type of image called `xyz`, it will be available under the repository URL `govtechsg/cicd-images:xyz-latest`. Specific versions can be found in the [DockerHub Tags page](https://hub.docker.com/r/govtechsg/cicd-images/tags/)
@@ -96,6 +97,19 @@ Latest URL: `govtechsg/cicd-images:node<NODE_MAJOR_VERSION>-latest`
 All LTS versions of Node, and the latest major version (LTS or otherwise) are builit.
 
 - https://github.com/nodejs/Release
+
+#### `vtscripts`
+Canonical Tag: `vtscripts-<VTSCRIPTS>`
+Latest URL: `govtechsg/cicd-images:vtscripts-latest`
+
+##### Notes
+See https://github.com/govtechsg/version-tagging-scripts for more information on using this. Commands are symbolic linked to the system variable directory so you can use the following commands:
+
+- `init -q`
+- `get-branch -q`
+- `get-latest -q`
+- `get-next -q`
+- `iterate -q`
 
 ## Other Uses
 Images specified here can be uploaded to other repositories if you so wish. The commands are:

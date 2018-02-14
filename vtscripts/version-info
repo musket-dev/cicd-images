@@ -1,0 +1,4 @@
+#!/bin/sh
+cd /vtscripts;
+VERSION_VTSCRIPTS="$(get-latest -q)";
+printf "vtscripts:${VERSION_VTSCRIPTS}\n";

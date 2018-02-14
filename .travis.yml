@@ -139,6 +139,19 @@ jobs:
           if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
             ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
           fi;
+    - stage: publish
+      env:
+        - IMAGE_NAME: vtscripts
+      script:
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}";
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            if [ "${TRAVIS_COMMIT_MESSAGE##*'[force build]'*}"  ]; then
+              ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}" --force;
+            else
+              ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+            fi;
+          fi;
     - stage: release
       env:
         - TO: github
