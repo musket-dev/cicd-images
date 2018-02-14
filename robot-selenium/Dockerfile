@@ -1,17 +1,24 @@
-ARG ROBOTFRAMEWORK=3.0
-ARG SELENIUM2LIBRARY=1.7.4
-ARG ROBOT_FAKER=3.0.0
-ARG DATABASELIBRARY=0.8.1
-ARG PABOT=0.44
-ARG PDFMERGE=0.0.7
-ARG FAKER=0.8.11
-ARG CHROMEDRIVER_VERSION=2.33
+ARG ROBOTFRAMEWORK
+ARG SELENIUM2LIBRARY
+ARG ROBOT_FAKER
+ARG DATABASELIBRARY
+ARG PABOT
+ARG PDFMERGE
+ARG FAKER
+ARG CHROMEDRIVER_VERSION
 FROM debian:jessie-slim
 
 RUN apt-get update
 RUN apt-get install -y python python-pip gcc wget curl unzip libfreetype6 libfontconfig1 libxrender1 libXext6 libXdamage1 libXfixes-dev libXcomposite-dev libasound-dev libdbus-glib-1-dev libgtk2.0-0 libxt6
 
-ENV CHROMEDRIVER_VERSION ${CHROMEDRIVER_VERSION}
+ENV CHROMEDRIVER_VERSION ${CHROMEDRIVER_VERSION:-2.33}
+ENV ROBOTFRAMEWORK ${ROBOTFRAMEWORK:-3.0}
+ENV SELENIUM2LIBRARY  ${SELENIUM2LIBRARY:-1.7.4}
+ENV ROBOT_FAKER  ${ROBOT_FAKER:-3.0.0}
+ENV DATABASELIBRARY  ${DATABASELIBRARY:-0.8.1}
+ENV PABOT  ${PABOT:-0.44}
+ENV PDFMERGE  ${PDFMERGE:-0.0.7}
+ENV FAKER  ${FAKER:-0.8.11}
 
 WORKDIR /robot
 
@@ -29,17 +36,17 @@ RUN mv /opt/google/chrome/google-chrome /opt/google/chrome/google-chrome-browser
    && ln -s /opt/google/chrome/google-chrome-browser /usr/bin/chrome \
    && ln -s /usr/bin/headless-chrome /usr/bin/google-chrome
 
-RUN curl -SLO "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip" \
+RUN curl -SLO "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" \
   && unzip "chromedriver_linux64.zip" -d /usr/local/bin \
   && rm "chromedriver_linux64.zip"
 
-RUN pip install robotframework==${ROBOTFRAMEWORK}
-RUN pip install robotframework-selenium2library==${SELENIUM2LIBRARY}
-RUN pip install robotframework-faker==${ROBOT_FAKER}
-RUN pip install robotframework-pabot==${PABOT}
-RUN pip install robotframework-databaselibrary==${DATABASELIBRARY}
-RUN pip install pdfmerge==${PDFMERGE}
-RUN pip install faker==${FAKER}
+RUN pip install robotframework==$ROBOTFRAMEWORK
+RUN pip install robotframework-selenium2library==$SELENIUM2LIBRARY
+RUN pip install robotframework-faker==$ROBOT_FAKER
+RUN pip install robotframework-pabot==$PABOT
+RUN pip install robotframework-databaselibrary==$DATABASELIBRARY
+RUN pip install pdfmerge==$PDFMERGE
+RUN pip install faker==$FAKER
 
 RUN pip list
 RUN chrome --version
