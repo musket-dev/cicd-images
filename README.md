@@ -17,6 +17,7 @@ https://hub.docker.com/r/govtechsg/cicd-images
 - Karma Test Runner (`karma`)
 - Kubernetes Client (`kubectl`)
 - Node.js (`node`)
+- Robot Selenium (`robot-selenium`)
 - Version Tagging Scripts (`vtscripts`)
 
 ### Release Notes
@@ -97,6 +98,9 @@ Latest URL: `govtechsg/cicd-images:node<NODE_MAJOR_VERSION>-latest`
 All LTS versions of Node, and the latest major version (LTS or otherwise) are builit.
 
 - https://github.com/nodejs/Release
+
+#### `robot-selenium`
+Latest URL: `govtechsg/cicd-images:robot-selenium-latest`
 
 #### `vtscripts`
 Canonical Tag: `vtscripts-<VTSCRIPTS>`
