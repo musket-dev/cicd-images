@@ -56,6 +56,18 @@ AWS_DEFAULT_REGION
 
 - https://docs.aws.amazon.com/cli/latest/userguide/cli-environment.html
 
+#### `dephash`
+Canonical Tag: `dind-<REPO_VERSION>`  
+Latest URL: `govtechsg/cicd-images:dephash-latest`
+
+##### Notes
+See https://github.com/govtechsg/version-tagging-scripts for more information on using this. Commands are symbolic linked to the system variable directory so you can use the following commands:
+
+- `dephash ./path/to/file --npm`
+- `dephash ./path/to/file --npm --prod`
+- `dephash ./path/to/file --npm --dev`
+- `dephash ./path/to/file --yarn`
+
 #### `dind`
 Canonical Tag: `dind-<DOCKER_VERSION>`  
 Latest URL: `govtechsg/cicd-images:dind-latest`
