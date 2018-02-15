@@ -1,0 +1,6 @@
+#!/bin/sh
+cd /dephash; # match this with the PATH_PACKAGE in Dockerfile
+curl https://raw.githubusercontent.com/zephinzer/version-tagging-scripts/master/get-latest -o get-latest
+chmod +x ./get-latest;
+VERSION_DEPHASH="$(./get-latest -q)";
+printf "dephash:${VERSION_DEPHASH}\n";
