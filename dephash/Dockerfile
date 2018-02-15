@@ -1,6 +1,6 @@
 FROM alpine:3.7
 LABEL maintainer="zephinzer <dev-at-joeir-dot-net>" \
-      description="Version tagger container for use in CI pipelines"
+      description="Dependency hasher image for use in CI containers"
 ENV APK_DEPENDENCIES="bash curl git jq vim" \
     PATHS_TO_REMOVE="\
       /usr/include/* \

@@ -4,3 +4,4 @@ curl https://raw.githubusercontent.com/zephinzer/version-tagging-scripts/master/
 chmod +x ./get-latest;
 VERSION_DEPHASH="$(./get-latest -q)";
 printf "dephash:${VERSION_DEPHASH}\n";
+rm -rf ./get-latest;
