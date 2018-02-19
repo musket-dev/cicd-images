@@ -11,7 +11,7 @@ ENV APK_DEPENDENCIES="bash curl git jq vim" \
     PATH_PACKAGE="/vtscripts" \
     PATH_SYSTEM_BIN="/usr/local/bin" \
     GIT_CLONE_ADDRESS="https://github.com/GovTechSG/version-tagging-scripts.git"
-WORKDIR ["/"]
+WORKDIR /
 USER root
 COPY ./version-info /usr/bin
 RUN apk add --update --upgrade --no-cache ${APK_DEPENDENCIES} \

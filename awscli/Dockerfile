@@ -15,4 +15,4 @@ RUN apk add --update --upgrade --no-cache ${APK_DEPENDENCIES} \
     && pip --no-cache-dir install ${PIP_DEPENDENCIES} \
     && rm -rf ${PATHS_TO_REMOVE} \
     && chmod +x /usr/bin/version-info
-WORKDIR ["/"]
+WORKDIR /

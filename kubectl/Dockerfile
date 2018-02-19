@@ -9,7 +9,7 @@ ENV APK_DEPENDENCIES="bash curl git jq vim docker" \
       /var/cache/apk/* \
       ~/.cache/pip/* \
       /var/cache/misc/*"
-WORKDIR ["/"]
+WORKDIR /
 USER root
 COPY ./version-info /usr/bin
 RUN apk add --update --upgrade --no-cache ${APK_DEPENDENCIES} \

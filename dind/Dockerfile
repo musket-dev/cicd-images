@@ -9,7 +9,7 @@ ENV APK_DEPENDENCIES="bash curl git jq vim openssh build-base python-dev python 
       /var/cache/apk/* \
       ~/.cache/pip/* \
       /var/cache/misc/*"
-WORKDIR ["/"]
+WORKDIR /
 COPY ./version-info /usr/bin/
 RUN apk add --update --upgrade --no-cache ${APK_DEPENDENCIES} \
     && pip --no-cache-dir install ${PIP_DEPENDENCIES} \
