@@ -23,6 +23,7 @@ fi;
 
 docker build \
   ${ADDITIONAL_BUILD_ARGS} \
+  --no-cache \
   --file ${CURR_DIR}/../${IMAGE_TAG}/Dockerfile \
   --tag "${NEXT_TAG}" \
   ${CURR_DIR}/../${IMAGE_TAG};
