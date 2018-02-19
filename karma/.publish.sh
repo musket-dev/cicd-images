@@ -11,7 +11,7 @@ EXISTENCE_REPO_URL="${REPOSITORY_URL}-${EXISTENCE_TAG}";
 CHROMIUM_VERSION_REPO_URL="${REPOSITORY_URL}-${VERSION_CHROMIUM}";
 
 printf "Checking existence of [${EXISTENCE_REPO_URL}]...";
-$(docker pull ${EXISTENCE_REPO_URL}) && EXISTS=$?;
+_="$(docker pull "${EXISTENCE_REPO_URL}")" && EXISTS=$?;
 if [[ "${EXISTS}" = "0" ]]  && [[ "$*" != *"--force"* ]]; then
   printf "[${EXISTENCE_REPO_URL}] found. Skipping push.\n";
   echo exists;

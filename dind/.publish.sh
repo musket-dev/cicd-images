@@ -14,7 +14,7 @@ EXISTENCE_REPO_URL="${REPOSITORY_URL}-${EXISTENCE_TAG}";
 DOCKER_VERSION_REPO_URL="${REPOSITORY_URL}-${VERSION_DOCKER}";
 
 printf "Checking existence of [${EXISTENCE_REPO_URL}]...";
-$(docker pull ${EXISTENCE_REPO_URL}) && EXISTS=$?;
+_="$(docker pull "${EXISTENCE_REPO_URL}")" && EXISTS=$?;
 if [[ "${EXISTS}" = "0" ]]  && [[ "$*" != *"--force"* ]]; then
   printf "[${EXISTENCE_REPO_URL}] found. Skipping push.\n";
   echo exists;
