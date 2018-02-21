@@ -4,13 +4,13 @@ REPOSITORY_URL=$1;
 TAG="${REPOSITORY_URL}-next";
 TAG_LATEST="${REPOSITORY_URL}-latest";
 VERSIONS=$(docker run --entrypoint="version-info" ${TAG});
-VERSION_ROBOTFRAMEWORK=$(printf "${VERSIONS}" | grep robotframework | cut -f 2 -d ':');
+VERSION_ROBOTFRAMEWORK=$(printf "${VERSIONS}" | grep robotframework-lib | cut -f 2 -d ':');
 VERSION_SELENIUM2LIBRARY=$(printf "${VERSIONS}" | grep robotframework-selenium2library | cut -f 2 -d ':');
 VERSION_ROBOT_FAKER=$(printf "${VERSIONS}" | grep robotframework-faker | cut -f 2 -d ':');
 VERSION_DATABASELIBRARY=$(printf "${VERSIONS}" | grep robotframework-databaselibrary | cut -f 2 -d ':');
 VERSION_PABOT=$(printf "${VERSIONS}" | grep robotframework-pabot | cut -f 2 -d ':');
 VERSION_PDFMERGE=$(printf "${VERSIONS}" | grep pdfmerge | cut -f 2 -d ':');
-VERSION_FAKER=$(printf "${VERSIONS}" | grep faker | cut -f 2 -d ':');
+VERSION_FAKER=$(printf "${VERSIONS}" | grep faker-lib | cut -f 2 -d ':');
 VERSION_CHROMEDRIVER=$(printf "${VERSIONS}" | grep chromedriver | cut -f 2 -d ':')
 
 EXISTENCE_TAG="robotframework-${VERSION_ROBOTFRAMEWORK}_selenium2lib-${VERSION_SELENIUM2LIBRARY}_robotframework-faker-${VERSION_ROBOT_FAKER}-databaselibrary-${VERSION_DATABASELIBRARY}-pabot-${VERSION_PABOT}_pdfmerge-${VERSION_PDFMERGE}_faker-${VERSION_FAKER}_chromedriver-${VERSION_CHROMEDRIVER}";
