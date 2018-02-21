@@ -13,7 +13,7 @@ VERSION_PDFMERGE=$(printf "${VERSIONS}" | grep pdfmerge | cut -f 2 -d ':');
 VERSION_FAKER=$(printf "${VERSIONS}" | grep faker-lib | cut -f 2 -d ':');
 VERSION_CHROMEDRIVER=$(printf "${VERSIONS}" | grep chromedriver | cut -f 2 -d ':')
 
-EXISTENCE_TAG="robotframework-${VERSION_ROBOTFRAMEWORK}_selenium2lib-${VERSION_SELENIUM2LIBRARY}_rbf-faker-${VERSION_ROBOT_FAKER}-dblib-${VERSION_DATABASELIBRARY}-pabot-${VERSION_PABOT}_pdfmerge-${VERSION_PDFMERGE}_faker-${VERSION_FAKER}_chromedriver-${VERSION_CHROMEDRIVER}";
+EXISTENCE_TAG="robot-${VERSION_ROBOTFRAMEWORK}_selenium2lib-${VERSION_SELENIUM2LIBRARY}_rbf-faker-${VERSION_ROBOT_FAKER}-dblib-${VERSION_DATABASELIBRARY}-pabot-${VERSION_PABOT}_pdfmerge-${VERSION_PDFMERGE}_faker-${VERSION_FAKER}_chromedriver-${VERSION_CHROMEDRIVER}";
 EXISTENCE_REPO_URL="${REPOSITORY_URL}-${EXISTENCE_TAG}";
 
 printf "Version Tag: ${EXISTENCE_TAG}"
