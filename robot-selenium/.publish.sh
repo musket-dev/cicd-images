@@ -3,18 +3,20 @@ REPOSITORY_URL=$1;
 
 TAG="${REPOSITORY_URL}-next";
 TAG_LATEST="${REPOSITORY_URL}-latest";
-VERSION_ROBOTFRAMEWORK="$(pip show robotframework | grep Version | cut -f 2 -d ' ')";
-VERSION_SELENIUM2LIBRARY="$(pip show robotframework-selenium2library | grep Version | cut -f 2 -d ' ')";
-VERSION_ROBOT_FAKER="$(pip show robotframework-faker | grep Version | cut -f 2 -d ' ')";
-VERSION_DATABASELIBRARY="$(pip show robotframework-databaselibrary | grep Version | cut -f 2 -d ' ')";
-VERSION_PABOT="$(pip show robotframework-pabot | grep Version | cut -f 2 -d ' ')";
-VERSION_PDFMERGE="$(pip show pdfmerge | grep Version | cut -f 2 -d ' ')";
-VERSION_FAKER="$(pip show faker | grep Version | cut -f 2 -d ' ')";
-VERSION_CHROMEDRIVER="$(chromedriver --version | cut -f 2 -d ' ')"
+VERSIONS=$(docker run --entrypoint="version-info" ${TAG});
+VERSION_ROBOTFRAMEWORK=$(printf "${VERSIONS}" | grep robotframework | cut -f 2 -d ':');
+VERSION_SELENIUM2LIBRARY=$(printf "${VERSIONS}" | grep robotframework-selenium2library | cut -f 2 -d ':');
+VERSION_ROBOT_FAKER=$(printf "${VERSIONS}" | grep robotframework-faker | cut -f 2 -d ':');
+VERSION_DATABASELIBRARY=$(printf "${VERSIONS}" | grep robotframework-databaselibrary | cut -f 2 -d ':');
+VERSION_PABOT=$(printf "${VERSIONS}" | grep robotframework-pabot | cut -f 2 -d ':');
+VERSION_PDFMERGE=$(printf "${VERSIONS}" | grep pdfmerge | cut -f 2 -d ':');
+VERSION_FAKER=$(printf "${VERSIONS}" | grep faker | cut -f 2 -d ':');
+VERSION_CHROMEDRIVER=$(printf "${VERSIONS}" | grep chromedriver | cut -f 2 -d ':')
 
-EXISTENCE_TAG="robotframework-${VERSION_ROBOTFRAMEWORK}_selenium2lib-${VERSION_SELENIUM2LIBRARY}_robotframework-faker-${VERSION_ROBOT_FAKER}_robotframework-databaselibrary-${VERSION_DATABASELIBRARY}_robotframework-pabot-${VERSION_PABOT}_pdfmerge-${VERSION_PDFMERGE}_faker-${VERSION_FAKER}_chromedriver-${VERSION_CHROMEDRIVER}";
+EXISTENCE_TAG="robotframework-${VERSION_ROBOTFRAMEWORK}_selenium2lib-${VERSION_SELENIUM2LIBRARY}_robotframework-faker-${VERSION_ROBOT_FAKER}-databaselibrary-${VERSION_DATABASELIBRARY}-pabot-${VERSION_PABOT}_pdfmerge-${VERSION_PDFMERGE}_faker-${VERSION_FAKER}_chromedriver-${VERSION_CHROMEDRIVER}";
 EXISTENCE_REPO_URL="${REPOSITORY_URL}-${EXISTENCE_TAG}";
-REPO_URL="${REPOSITORY_URL}-${VERSION_AWS}";
+
+printf "Version Tag: ${EXISTENCE_TAG}"
 
 printf "Checking existence of [${EXISTENCE_REPO_URL}]...";
 _="$(docker pull "${EXISTENCE_REPO_URL}")" && EXISTS=$?;
@@ -26,9 +28,6 @@ else
   printf "Pushing [${EXISTENCE_REPO_URL}]... ";
   docker tag ${TAG} ${EXISTENCE_REPO_URL};
   docker push ${EXISTENCE_REPO_URL};
-  printf "Pushing [${REPO_URL}]... ";
-  docker tag ${TAG} ${REPO_URL};
-  docker push ${REPO_URL};
   printf "Pushing [${TAG}]... ";
   docker tag ${TAG} ${TAG_LATEST};
   docker push ${TAG_LATEST};
