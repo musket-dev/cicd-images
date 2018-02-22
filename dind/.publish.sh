@@ -9,7 +9,8 @@ VERSION_GIT=$(printf "${VERSIONS}" | grep git | cut -f 2 -d ':');
 VERSION_DOCKER=$(printf "${VERSIONS}" | grep 'docker:' | cut -f 2 -d ':');
 VERSION_DOCKER_COMPOSE=$(printf "${VERSIONS}" | grep docker-compose | cut -f 2 -d ':');
 VERSION_OPENSSH=$(printf "${VERSIONS}" | grep openssh | cut -f 2 -d ':');
-EXISTENCE_TAG="docker-${VERSION_DOCKER}_docker-compose-${VERSION_DOCKER_COMPOSE}_git-${VERSION_GIT}_openssh-${VERSION_OPENSSH}";
+VERSION_MYSQL_CLIENT=$(printf "${VERSION}" | grep mysql-client | cut -f 2 -d ':');
+EXISTENCE_TAG="docker-${VERSION_DOCKER}_docker-compose-${VERSION_DOCKER_COMPOSE}_git-${VERSION_GIT}_openssh-${VERSION_OPENSSH}_mysql-client-${VERSION_MYSQL_CLIENT}";
 EXISTENCE_REPO_URL="${REPOSITORY_URL}-${EXISTENCE_TAG}";
 DOCKER_VERSION_REPO_URL="${REPOSITORY_URL}-${VERSION_DOCKER}";
 

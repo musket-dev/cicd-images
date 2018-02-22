@@ -7,7 +7,9 @@ ssh -V &>/tmp/sshv \
   && rm -rf /tmp/sshv;
 VERSION_OPENSSH="$(printf "${VERSION_SSL}" | cut -f 1 -d ' ' | cut -f 2 -d '_' | cut -f 1 -d ',')";
 VERSION_LIBRESSL="$(printf "${VERSION_SSL}" | cut -f 3 -d ' ')";
+VERSION_MYSQL_CLIENT="$(mysql --version | cut -f 4 -d ' ')"
 printf "git:${VERSION_GIT}\n";
 printf "docker:${VERSION_DOCKER}\n";
 printf "docker-compose:${VERSION_DOCKER_COMPOSE}\n";
 printf "openssh:${VERSION_OPENSSH}\n";
+printf "mysql-client:${VERSION_MYSQL_CLIENT}\n"
