@@ -31,7 +31,7 @@ COPY ./version-info /usr/bin
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
   && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
   && apt-get update \
-  && apt-get install libxi6 libgconf-2-4 \
+  && apt-get -y install libxi6 libgconf-2-4 \
   && apt-get -y install google-chrome-stable
 
 RUN mv /opt/google/chrome/google-chrome /opt/google/chrome/google-chrome-browser \
