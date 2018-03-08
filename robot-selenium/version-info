@@ -8,7 +8,7 @@ VERSION_PABOT="$(pip show robotframework-pabot | grep Version | cut -f 2 -d ' ')
 VERSION_PDFMERGE="$(pip show pdfmerge | grep Version | cut -f 2 -d ' ')";
 VERSION_FAKER="$(pip show faker | grep Version | cut -f 2 -d ' ')";
 VERSION_CHROMEDRIVER="$(chromedriver --version | cut -f 2 -d ' ')"
-
+VERSION_CHROME="$(chrome --version | cut -f 3 -d ' ')"
 printf "robotframework-lib:${VERSION_ROBOTFRAMEWORK}\n";
 printf "robotframework-selenium2library:${VERSION_SELENIUM2LIBRARY}\n";
 printf "robotframework-faker:${VERSION_ROBOT_FAKER}\n";
@@ -17,3 +17,4 @@ printf "robotframework-pabot:${VERSION_PABOT}\n";
 printf "pdfmerge:${VERSION_PDFMERGE}\n";
 printf "faker-lib:${VERSION_FAKER}\n";
 printf "chromedriver:${VERSION_CHROMEDRIVER}\n";
+printf "chrome:${VERSION_CHROME}\n"

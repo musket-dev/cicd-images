@@ -11,7 +11,7 @@ FROM debian:jessie-slim
 RUN apt-get update
 RUN apt-get install -y python python-pip gcc wget curl unzip libfreetype6 libfontconfig1 libxrender1 libXext6 libXdamage1 libXfixes-dev libXcomposite-dev libasound-dev libdbus-glib-1-dev libgtk2.0-0 libxt6
 
-ENV CHROMEDRIVER_VERSION ${CHROMEDRIVER_VERSION:-2.33}
+ENV CHROMEDRIVER_VERSION ${CHROMEDRIVER_VERSION:-2.36}
 ENV ROBOTFRAMEWORK ${ROBOTFRAMEWORK:-3.0}
 ENV SELENIUM2LIBRARY  ${SELENIUM2LIBRARY:-1.7.4}
 ENV ROBOT_FAKER  ${ROBOT_FAKER:-3.0.0}
