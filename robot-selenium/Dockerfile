@@ -53,7 +53,18 @@ RUN pip install pdfmerge==$PDFMERGE
 RUN pip install faker==$FAKER
 RUN pip install pymysql==$PYMYSQL
 RUN pip install robotframework-sudslibrary
-RUN pip install cx_Oracle
+
+ENV ORACLE_HOME /opt/oracle/instantclient_12_1
+ENV LD_RUN_PATH=$ORACLE_HOME
+
+COPY instantclient/* /tmp/
+
+RUN \
+    apt-get update && apt-get install -y unzip build-essential libssl-dev libffi-dev python-dev lib32ncurses5-dev libaio1 && rm -rf /var/lib/apt/lists/* && \
+	mkdir -p /opt/oracle && \
+	unzip "/tmp/instantclient*.zip" -d /opt/oracle && \
+	ln -s $ORACLE_HOME/libclntsh.so.12.1 $ORACLE_HOME/libclntsh.so && \
+    pip install cx_Oracle==5.3
 
 RUN pip list
 RUN chrome --version
