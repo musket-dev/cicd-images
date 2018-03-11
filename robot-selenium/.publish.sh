@@ -13,9 +13,10 @@ VERSION_PDFMERGE=$(printf "${VERSIONS}" | grep pdfmerge | cut -f 2 -d ':');
 VERSION_FAKER=$(printf "${VERSIONS}" | grep faker-lib | cut -f 2 -d ':');
 VERSION_CHROMEDRIVER=$(printf "${VERSIONS}" | grep chromedriver | cut -f 2 -d ':')
 VERSION_CHROME=$(printf "${VERSIONS}" | grep chrome: | cut -f 2 -d ':')
-VERSION_SUDSLIBRARY=$)printf "${VERSIONS}" | grep sudslibrary | cut -f 2 -d ':')
+VERSION_SUDSLIBRARY=$(printf "${VERSIONS}" | grep sudslibrary | cut -f 2 -d ':')
+VERSION_ORACLE=$(printf "${VERSIONS}" | grep oracle | cut -f 2 -d ':')
 
-EXISTENCE_TAG="robot-${VERSION_ROBOTFRAMEWORK}_selenium2lib-${VERSION_SELENIUM2LIBRARY}_rbf-faker-${VERSION_ROBOT_FAKER}-suds-${VERSION_SUDSLIBRARY}-pabot-${VERSION_PABOT}-chrome-${VERSION_CHROME}_chromedriver-${VERSION_CHROMEDRIVER}";
+EXISTENCE_TAG="robot-${VERSION_ROBOTFRAMEWORK}_selenium2lib-${VERSION_SELENIUM2LIBRARY}_rbf-faker-${VERSION_ROBOT_FAKER}-suds-${VERSION_SUDSLIBRARY}-cx_oracle-${VERSION_ORACLE}-chrome-${VERSION_CHROME}_chromedriver-${VERSION_CHROMEDRIVER}";
 EXISTENCE_REPO_URL="${REPOSITORY_URL}-${EXISTENCE_TAG}";
 
 printf "Version Tag: ${EXISTENCE_TAG}"

@@ -53,6 +53,7 @@ RUN pip install pdfmerge==$PDFMERGE
 RUN pip install faker==$FAKER
 RUN pip install pymysql==$PYMYSQL
 RUN pip install SudsLibrary
+RUN pip install cx_Oracle
 
 RUN pip list
 RUN chrome --version
