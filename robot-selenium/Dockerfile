@@ -52,6 +52,7 @@ RUN pip install robotframework-databaselibrary==$DATABASELIBRARY
 RUN pip install pdfmerge==$PDFMERGE
 RUN pip install faker==$FAKER
 RUN pip install pymysql==$PYMYSQL
+RUN pip install SudsLibrary
 
 RUN pip list
 RUN chrome --version
