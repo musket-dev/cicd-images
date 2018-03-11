@@ -9,7 +9,7 @@ VERSION_PDFMERGE="$(pip show pdfmerge | grep Version | cut -f 2 -d ' ')";
 VERSION_FAKER="$(pip show faker | grep Version | cut -f 2 -d ' ')";
 VERSION_CHROMEDRIVER="$(chromedriver --version | cut -f 2 -d ' ')"
 VERSION_CHROME="$(chrome --version | cut -f 3 -d ' ')"
-VERSION_SUDSLIBRARY="$(pip show SudsLibrary | grep Version | cut -f 2 -d ' ')"
+VERSION_SUDSLIBRARY="$(pip show robotframework-sudslibrary | grep Version | cut -f 2 -d ' ')"
 VERSION_ORACLE="$(pip show cx_Oracle | grep version | cut -f 2 -d ' ')"
 
 printf "robotframework-lib:${VERSION_ROBOTFRAMEWORK}\n";
