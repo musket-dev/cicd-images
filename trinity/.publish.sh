@@ -12,7 +12,7 @@ VERSION_DOCKER=$(printf "${VERSIONS}" | grep docker | cut -f 2 -d ':');
 VERSION_KUBECTL=$(printf "${VERSIONS}" | grep kubectl | cut -f 2 -d ':');
 EXISTENCE_TAG="aws-${VERSION_AWS}_git-${VERSION_GIT}_python-${VERSION_PYTHON}_docker-${VERSION_DOCKER}_kubectl-${VERSION_KUBECTL}";
 EXISTENCE_REPO_URL="${REPOSITORY_URL}-${EXISTENCE_TAG}";
-REPO_URL="${REPOSITORY_URL}-${VERSION_AWS}";
+REPO_URL="${REPOSITORY_URL}-${VERSION_AWS}-${VERSION_DOCKER}-${VERSION_KUBECTL}";
 
 printf "Checking existence of [${EXISTENCE_REPO_URL}]...";
 _="$(docker pull "${EXISTENCE_REPO_URL}")" && EXISTS=$?;
