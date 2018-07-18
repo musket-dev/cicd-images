@@ -51,6 +51,7 @@ RUN pip install robotframework-selenium2library==$SELENIUM2LIBRARY
 RUN pip install robotframework-faker==$ROBOT_FAKER
 RUN pip install robotframework-pabot==$PABOT
 RUN pip install robotframework-databaselibrary==$DATABASELIBRARY
+RUN pip install setuptools --upgrade
 RUN pip install pdfmerge==$PDFMERGE
 RUN pip install faker==$FAKER
 RUN pip install pymysql==$PYMYSQL
