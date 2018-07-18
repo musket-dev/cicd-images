@@ -9,7 +9,7 @@ ARG CHROMEDRIVER_VERSION
 FROM debian:jessie-slim
 
 RUN apt-get update
-RUN apt-get install -y python python-pip gcc wget curl unzip libfreetype6 libfontconfig1 libxrender1 libXext6 libXdamage1 libXfixes-dev libXcomposite-dev libasound-dev libdbus-glib-1-dev libgtk2.0-0 libxt6 libxml2-dev libxslt1-dev
+RUN apt-get install -y python python-pip python-dev gcc wget curl unzip libfreetype6 libfontconfig1 libxrender1 libXext6 libXdamage1 libXfixes-dev libXcomposite-dev libasound-dev libdbus-glib-1-dev libgtk2.0-0 libxt6 libxml2-dev libxslt1-dev
 
 ENV TZ="Asia/Singapore"
 ENV CHROMEDRIVER_VERSION ${CHROMEDRIVER_VERSION:-2.40}
@@ -66,7 +66,7 @@ ENV LD_RUN_PATH=$ORACLE_HOME
 COPY instantclient/* /tmp/
 
 RUN \
-    apt-get update && apt-get install -y unzip build-essential libssl-dev libffi-dev python-dev lib32ncurses5-dev libaio1 && rm -rf /var/lib/apt/lists/* && \
+    apt-get update && apt-get install -y unzip build-essential libssl-dev libffi-dev lib32ncurses5-dev libaio1 && rm -rf /var/lib/apt/lists/* && \
 	mkdir -p /opt/oracle && \
 	unzip "/tmp/instantclient*.zip" -d /opt/oracle && \
 	ln -s $ORACLE_HOME/libclntsh.so.12.1 $ORACLE_HOME/libclntsh.so && \
