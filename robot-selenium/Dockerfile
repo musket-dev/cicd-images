@@ -9,7 +9,7 @@ ARG CHROMEDRIVER_VERSION
 FROM debian:jessie-slim
 
 RUN apt-get update
-RUN apt-get install -y python python-pip gcc wget curl unzip libfreetype6 libfontconfig1 libxrender1 libXext6 libXdamage1 libXfixes-dev libXcomposite-dev libasound-dev libdbus-glib-1-dev libgtk2.0-0 libxt6
+RUN apt-get install -y python python-pip gcc wget curl unzip libfreetype6 libfontconfig1 libxrender1 libXext6 libXdamage1 libXfixes-dev libXcomposite-dev libasound-dev libdbus-glib-1-dev libgtk2.0-0 libxt6 libxml2-dev libxslt1-dev
 
 ENV TZ="Asia/Singapore"
 ENV CHROMEDRIVER_VERSION ${CHROMEDRIVER_VERSION:-2.40}
