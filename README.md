@@ -16,6 +16,7 @@ https://hub.docker.com/r/govtechsg/cicd-images
 - Google Kubernetes Engine CLI (`gkecli`)
 - Karma Test Runner (`karma`)
 - Kubernetes Client (`kubectl`)
+- Trinity (`awscli` + `docker` + `kubectl`)
 - Node.js (`node`)
 - Robot Selenium (`robot-selenium`)
 - Version Tagging Scripts (`vtscripts`)
@@ -129,6 +130,11 @@ All LTS versions of Node, and the latest major version (LTS or otherwise) are bu
 [![Anchore Image Overview](https://anchore.io/service/badges/image/cab737500036d300fe203a19f78fa9e4a4a49fa53e9b4a4190c1c700d10bc3fc)](https://anchore.io/image/dockerhub/cab737500036d300fe203a19f78fa9e4a4a49fa53e9b4a4190c1c700d10bc3fc?repo=govtechsg%2Fcicd-images&tag=robot-selenium-latest)
 
 Latest URL: `govtechsg/cicd-images:robot-selenium-latest`
+
+#### `trinity`
+
+Canonical Tag: `trinity-<AWS_CLI_VERSION>-<DOCKER_VERSION>-<KUBECT_VERSION>`
+Latest URL: `govtechsg/cicd-images:trinity-latest`
 
 #### `vtscripts`
 [![Anchore Image Overview](https://anchore.io/service/badges/image/67d5a49c09e43b95468a4bd4488d02125981013180af3733532977fdaa283ed2)](https://anchore.io/image/dockerhub/67d5a49c09e43b95468a4bd4488d02125981013180af3733532977fdaa283ed2?repo=govtechsg%2Fcicd-images&tag=vtscripts-latest)
