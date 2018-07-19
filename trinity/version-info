@@ -4,7 +4,7 @@ VERSION_AWSCLI=$(cat ./.test | cut -f 1 -d ' ' | cut -f 2 -d '/')
 VERSION_PYTHON=$(cat ./.test | cut -f 2 -d ' ' | cut -f 2 -d '/')
 VERSION_GIT="$(git --version | cut -d ' ' -f 3)";
 VERSION_DOCKER="$(docker -v | cut -f 5 -d ' ' | cut -f 2 -d 'v')";
-VERSION_KUBECTL="$(kubectl version --client --output='json' | jq '.clientVersion.gitVersion' | jq -r)";
+VERSION_KUBECTL="$(kubectl version --client --output='json' | jq -r '.clientVersion.gitVersion')";
 printf "aws:${VERSION_AWSCLI}\n";
 printf "python:${VERSION_PYTHON}\n";
 printf "git:${VERSION_GIT}\n";
