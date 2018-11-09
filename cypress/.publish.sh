@@ -5,9 +5,10 @@ TAG="${REPOSITORY_URL}-next";
 TAG_LATEST="${REPOSITORY_URL}-latest";
 
 VERSIONS=$(docker run --entrypoint="version-info" ${TAG});
-VERSION_CHROME=$(printf "${VERSION}" | grep chrome | cut -f 2 -d ':');
-VERSION_CYPRESS=$(printf "${VERSION}" | grep cypress | cut -f 2 -d ':');
-EXISTENCE_TAG="-${VERSION_CYPRESS}_chrome-${VERSION_CHROME}";
+echo $VERSIONS
+VERSION_CHROME=$(printf "${VERSIONS}" | grep chrome | cut -f 2 -d ':');
+VERSION_CYPRESS=$(printf "${VERSIONS}" | grep cypress | cut -f 2 -d ':');
+EXISTENCE_TAG="${VERSION_CYPRESS}_chrome-${VERSION_CHROME}";
 EXISTENCE_REPO_URL="${REPOSITORY_URL}-${EXISTENCE_TAG}";
 
 printf "Checking existence of [${EXISTENCE_REPO_URL}]...";
