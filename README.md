@@ -71,7 +71,7 @@ AWS_DEFAULT_REGION
 #### `cypress`
 
 Canonical Tag: `cypress-<REPO_VERSION>`  
-Latest URL: `govtechsg/cicd-images:cypress-chrome67-ff57`
+Latest URL: `govtechsg/cicd-images:cypress-latest`
 
 ##### Notes
 
