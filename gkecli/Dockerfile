@@ -23,7 +23,7 @@ RUN apk add --update --upgrade --no-cache ${APK_DEPENDENCIES} \
     && ${DIR_INSTALL}/install.sh --disable-prompts --install-dir=${DIR_INSTALL} \
     && source ${DIR_GCLOUD_SDK}/path.bash.inc \
     && gcloud config set disable_usage_reporting true \
-    && gcloud components install alpha beta container-builder-local docker-credential-gcr kubectl -q \
+    && gcloud components install alpha beta cloud-build-local docker-credential-gcr kubectl -q \
     && rm -rf ${PATHS_TO_REMOVE} \
     && chmod +x /usr/bin/version-info
 WORKDIR /
