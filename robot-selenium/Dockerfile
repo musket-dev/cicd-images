@@ -13,7 +13,7 @@ RUN apt-get update
 RUN apt-get install -y python python-pip python-dev gcc wget curl unzip libfreetype6 libfontconfig1 libxrender1 libXext6 libXdamage1 libXfixes-dev libXcomposite-dev libasound-dev libdbus-glib-1-dev libgtk2.0-0 libxt6 libxml2-dev libxslt1-dev
 
 ENV TZ="Asia/Singapore"
-ENV CHROMEDRIVER_VERSION ${CHROMEDRIVER_VERSION:-2.41}
+ENV CHROMEDRIVER_VERSION ${CHROMEDRIVER_VERSION:-2.46}
 ENV ROBOTFRAMEWORK ${ROBOTFRAMEWORK:-3.0}
 ENV SELENIUM2LIBRARY  ${SELENIUM2LIBRARY:-1.7.4}
 ENV ROBOT_FAKER  ${ROBOT_FAKER:-3.0.0}
@@ -42,14 +42,18 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
   && apt-get -y install google-chrome-stable
 
 RUN mv /opt/google/chrome/google-chrome /opt/google/chrome/google-chrome-browser \
-   && rm /usr/bin/google-chrome-stable \
-   && rm /usr/bin/google-chrome \
-   && ln -s /opt/google/chrome/google-chrome-browser /usr/bin/chrome \
-   && ln -s /usr/bin/headless-chrome /usr/bin/google-chrome
+  && rm /usr/bin/google-chrome-stable \
+  && rm /usr/bin/google-chrome \
+  && ln -s /opt/google/chrome/google-chrome-browser /usr/bin/chrome \
+  && ln -s /usr/bin/headless-chrome /usr/bin/google-chrome
 
-RUN curl -SLO "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" \
+RUN chrome --version > chrome_version \
+  && CHROME_VERSION=$(cat chrome_version | cut -d. -f-3) \
+  && CHROMEDRIVER_VERSION=`curl https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION##* }` \
+  && curl -SLO "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" \
   && unzip "chromedriver_linux64.zip" -d /usr/local/bin \
-  && rm "chromedriver_linux64.zip"
+  && rm "chromedriver_linux64.zip" \
+  && rm chrome_version
 
 RUN pip install robotframework==$ROBOTFRAMEWORK
 RUN pip install robotframework-selenium2library==$SELENIUM2LIBRARY
@@ -74,9 +78,9 @@ COPY instantclient/* /tmp/
 
 RUN \
     apt-get update && apt-get install -y unzip build-essential libssl-dev libffi-dev lib32ncurses5-dev libaio1 && rm -rf /var/lib/apt/lists/* && \
-	mkdir -p /opt/oracle && \
-	unzip "/tmp/instantclient*.zip" -d /opt/oracle && \
-	ln -s $ORACLE_HOME/libclntsh.so.12.1 $ORACLE_HOME/libclntsh.so && \
+    mkdir -p /opt/oracle && \
+    unzip "/tmp/instantclient*.zip" -d /opt/oracle && \
+    ln -s $ORACLE_HOME/libclntsh.so.12.1 $ORACLE_HOME/libclntsh.so && \
     pip install cx_Oracle==5.3
 
 RUN pip list
