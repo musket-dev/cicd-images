@@ -204,6 +204,52 @@ jobs:
               ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
             fi;
           fi;
+
+    - stage: publish
+      env:
+        - IMAGE_NAME: python-chrome-oracle
+        - PYTHON_VERSION: 3.7
+      script:
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" PYTHON_VERSION=${PYTHON_VERSION};
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            if [ "${TRAVIS_COMMIT_MESSAGE##*'[force build]'*}"  ]; then
+              ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}" --force;
+            else
+              ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+            fi;
+          fi;
+
+    - stage: publish
+      env:
+        - IMAGE_NAME: python-chrome-oracle
+        - PYTHON_VERSION: 3.6
+      script:
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" PYTHON_VERSION=${PYTHON_VERSION};
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            if [ "${TRAVIS_COMMIT_MESSAGE##*'[force build]'*}"  ]; then
+              ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}" --force;
+            else
+              ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+            fi;
+          fi;
+
+    - stage: publish
+      env:
+        - IMAGE_NAME: python-chrome-oracle
+        - PYTHON_VERSION: 2.7
+      script:
+        - ./scripts/build.sh "${DH_REPO}" "${IMAGE_NAME}" PYTHON_VERSION=${PYTHON_VERSION};
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            if [ "${TRAVIS_COMMIT_MESSAGE##*'[force build]'*}"  ]; then
+              ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}" --force;
+            else
+              ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+            fi;
+          fi;
+
     - stage: release
       env:
         - TO: github

@@ -1,0 +1,35 @@
+#!/bin/bash
+REPOSITORY_URL=$1;
+
+TAG="${REPOSITORY_URL}-next";
+
+VERSIONS=$(docker run --entrypoint="version-info" ${TAG});
+VERSION_PYTHON=$(printf "${VERSIONS}" | grep python | cut -f 2 -d ':');
+VERSION_CHROME=$(printf "${VERSIONS}" | grep chrome:| cut -f 2 -d ':');
+VERSION_CHROMEDRIVER=$(printf "${VERSIONS}" | grep chromedriver: | cut -f 2 -d ':');
+EXISTENCE_TAG="python-${VERSION_PYTHON}_chrome-${VERSION_CHROME}_chromedriver-${VERSION_CHROMEDRIVER}";
+EXISTENCE_REPO_URL="${REPOSITORY_URL}-${EXISTENCE_TAG}";
+PYTHON_VERSION_REPO_URL="${REPOSITORY_URL}-py${VERSION_PYTHON}";
+
+LATEST_REPO_URL="${REPOSITORY_URL}-py${VERSION_PYTHON}-latest";
+
+printf "Checking existence of [${EXISTENCE_REPO_URL}]...";
+_="$(docker pull "${EXISTENCE_REPO_URL}")" && EXISTS=$?;
+if [[ "${EXISTS}" = "0" ]]  && [[ "$*" != *"--force"* ]]; then
+  printf "[${EXISTENCE_REPO_URL}] found. Skipping push.\n";
+  echo exists;
+else
+  printf "[${EXISTENCE_REPO_URL}] not found. Pushing new image...\n";
+
+  printf "Pushing [${EXISTENCE_REPO_URL}]... ";
+  docker tag ${TAG} ${EXISTENCE_REPO_URL};
+  docker push ${EXISTENCE_REPO_URL};
+
+  printf "Pushing [${LATEST_REPO_URL}]... ";
+  docker tag ${TAG} ${LATEST_REPO_URL};
+  docker push ${LATEST_REPO_URL};
+
+  printf "Pushing [${PYTHON_VERSION_REPO_URL}]... ";
+  docker tag ${TAG} ${PYTHON_VERSION_REPO_URL};
+  docker push ${PYTHON_VERSION_REPO_URL};
+fi;
