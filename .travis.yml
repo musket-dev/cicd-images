@@ -207,7 +207,7 @@ jobs:
 
     - stage: publish
       env:
-        - IMAGE_NAME: python-chrome-oracle
+        - IMAGE_NAME: chrome-oracle-py
         - PYTHON_VERSION: 3.7
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" PYTHON_VERSION=${PYTHON_VERSION};
@@ -222,7 +222,7 @@ jobs:
 
     - stage: publish
       env:
-        - IMAGE_NAME: python-chrome-oracle
+        - IMAGE_NAME: chrome-oracle-py
         - PYTHON_VERSION: 3.6
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" PYTHON_VERSION=${PYTHON_VERSION};
@@ -237,7 +237,7 @@ jobs:
 
     - stage: publish
       env:
-        - IMAGE_NAME: python-chrome-oracle
+        - IMAGE_NAME: chrome-oracle-py
         - PYTHON_VERSION: 2.7
       script:
         - ./scripts/build.sh "${DH_REPO}" "${IMAGE_NAME}" PYTHON_VERSION=${PYTHON_VERSION};

@@ -180,10 +180,10 @@ See https://github.com/govtechsg/version-tagging-scripts for more information on
 - `get-next -q`
 - `iterate -q`
 
-#### `python-chrome-oracle`
+#### `chrome-oracle-py`
 
-Canonical Tag: `python-chrome-oracle-py<PYTHON_VERSION>` \
-Latest URL: `govtechsg/cicd-images:python-chrome-oracle-py<PYTHON_VERSION>-latest`
+Canonical Tag: `chrome-oracle-py<PYTHON_VERSION>` \
+Latest URL: `govtechsg/cicd-images:chrome-oracle-py<PYTHON_VERSION>-latest`
 
 Python Versions:
 * 2.7
@@ -193,6 +193,13 @@ Python Versions:
 ##### Notes
 * Versions available are listed [here](https://hub.docker.com/_/python/). The downloaded python image version will be as follows: python:${PYTHON_VERSION}-slim-stretch
 * For use as a base image for robot regression frameworks.
+  1. pip freeze > requirements.txt in regression project folder
+  2. Add this instruction to your regression Dockerfile
+      ```
+      COPY requirements.txt ./
+      RUN pip install -r requirements.txt
+      ```
+      Or just just mount requirements.txt to container and configure `"#!/bin/bash pip install -r requirements.txt; exec "$@"` as your entrypoint.
 
 
 ## Other Uses
