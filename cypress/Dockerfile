@@ -7,6 +7,7 @@ RUN npm install mocha -g
 RUN npm install mochawesome -g
 RUN npm install cypress-eslint-preprocessor -g
 RUN npm install cypress-promise -g
+RUN npm install cypress-plugin-retries -g
 RUN npm install eslint -g
 RUN npm install prettier -g
 COPY ./version-info /usr/bin
