@@ -20,6 +20,7 @@ https://hub.docker.com/r/govtechsg/cicd-images
 - Trinity (`awscli` + `docker` + `kubectl`)
 - Node.js (`node`)
 - Robot Selenium (`robot-selenium`)
+- Robot Selenium Generic Image (`chrome-oracle-py`)
 - Version Tagging Scripts (`vtscripts`)
 
 ### Release Notes
@@ -158,6 +159,32 @@ All LTS versions of Node, and the latest major version (LTS or otherwise) are bu
 
 Latest URL: `govtechsg/cicd-images:robot-selenium-latest`
 
+#### `chrome-oracle-py`
+
+Canonical Tag: `chrome-oracle-py<PYTHON_VERSION>` \
+Latest URL: `govtechsg/cicd-images:chrome-oracle-py<PYTHON_VERSION>-latest`
+
+Python Versions:
+* 2.7
+* 3.6
+* 3.7
+
+Current Oracle Version: 12.1.0.2.0
+
+
+##### Notes
+* Versions available are listed [here](https://hub.docker.com/_/python/). The downloaded python image version will be as follows: python:${PYTHON_VERSION}-slim-stretch
+* For use as a base image for robot regression frameworks.
+  1. pip freeze > requirements.txt in regression project folder
+  2. Add this instruction to your regression Dockerfile
+      ```
+      COPY requirements.txt ./
+      RUN pip install -r requirements.txt
+      ```
+      Or just just mount requirements.txt to container and include `pip install -r requirements.txt` in your entrypoint.
+
+
+
 #### `trinity`
 
 Canonical Tag: `trinity-<AWS_CLI_VERSION>-<DOCKER_VERSION>-<KUBECT_VERSION>` \
@@ -179,28 +206,6 @@ See https://github.com/govtechsg/version-tagging-scripts for more information on
 - `get-latest -q`
 - `get-next -q`
 - `iterate -q`
-
-#### `chrome-oracle-py`
-
-Canonical Tag: `chrome-oracle-py<PYTHON_VERSION>` \
-Latest URL: `govtechsg/cicd-images:chrome-oracle-py<PYTHON_VERSION>-latest`
-
-Python Versions:
-* 2.7
-* 3.6
-* 3.7
-
-##### Notes
-* Versions available are listed [here](https://hub.docker.com/_/python/). The downloaded python image version will be as follows: python:${PYTHON_VERSION}-slim-stretch
-* For use as a base image for robot regression frameworks.
-  1. pip freeze > requirements.txt in regression project folder
-  2. Add this instruction to your regression Dockerfile
-      ```
-      COPY requirements.txt ./
-      RUN pip install -r requirements.txt
-      ```
-      Or just just mount requirements.txt to container and configure `"#!/bin/bash pip install -r requirements.txt; exec "$@"` as your entrypoint.
-
 
 ## Other Uses
 
