@@ -12,3 +12,5 @@ RUN npm install eslint -g
 RUN npm install prettier -g
 COPY ./version-info /usr/bin
 RUN chmod +x /usr/bin/version-info
+RUN npm link mocha
+RUN npm link mochawesome
