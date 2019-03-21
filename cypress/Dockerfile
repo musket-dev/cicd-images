@@ -20,3 +20,4 @@ RUN npm link mochawesome
 RUN npm link mochawesome-merge
 RUN npm link mochawesome-report-generator
 RUN npm link fs-extra
+RUN npm link cypress
