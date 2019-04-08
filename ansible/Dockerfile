@@ -13,7 +13,8 @@ ARG bash=4.4.19-r1
 ARG ansible=2.7.0-r1
 ARG pip_ver=19.0.3
 ARG ansible_lint=4.1.0
-ARG boto_ver=1.9.125
+ARG boto3_ver=1.9.125
+ARG boto2_ver=2.49.0
 
 ENV USERID="1001" \
     GROUPID="1001" \
@@ -27,7 +28,8 @@ ENV USERID="1001" \
     ANSIBLE=${ansible} \
     PIP=${pip_ver} \
     ANSIBLE_LINT=${ansible_lint} \
-    BOTO=${boto_ver}
+    BOTO3=${boto3_ver} \
+    BOTO2=${boto2_ver}
 
 RUN addgroup -S cicd -g ${GROUPID} \
   && adduser -D -S cicd -u ${USERID} -G cicd \
@@ -44,7 +46,8 @@ RUN addgroup -S cicd -g ${GROUPID} \
   && rm -r /usr/lib/python*/ensurepip \
   && pip3 install --upgrade pip==${PIP} \
   && pip3 install ansible-lint==${ANSIBLE_LINT} \
-  && pip3 install boto3==${BOTO} \
+  && pip3 install boto3==${BOTO3} \
+  && pip3 install boto==${BOTO2} \
   && ln -s /usr/bin/python3 /usr/bin/python \
   && rm -rf /usr/share/man/* \
     /usr/includes/* \
