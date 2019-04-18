@@ -16,6 +16,8 @@ ARG ansible_lint=4.1.0
 ARG boto3_ver=1.9.125
 ARG boto2_ver=2.49.0
 
+COPY ./version-info /usr/bin
+
 ENV USERID="1001" \
     GROUPID="1001" \
     PYTHON=${python} \
