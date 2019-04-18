@@ -3,11 +3,11 @@ FROM alpine:${alpine_ver}
 LABEL maintainer="salihan" \
       description="Image containing Ansible and Ansible-lint for use in CI/CD pipelines"
 
-ARG python=3.6.8-r1
+ARG python=3.6.8-r2
 ARG openssh_client=7.9_p1-r4
 ARG sudo=1.8.25_p1-r2
 ARG curl=7.64.0-r1
-ARG gcc=8.2.0-r2
+ARG gcc=8.3.0-r0
 ARG zip=3.0-r7
 ARG bash=4.4.19-r1
 ARG ansible=2.7.0-r1
