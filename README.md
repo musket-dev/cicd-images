@@ -11,6 +11,7 @@ https://hub.docker.com/r/govtechsg/cicd-images
 ## Catalog (Alphabetical Order)
 
 - Alpine Linux (`alpine`)
+- Ansible (`ansible`)
 - Amazon Web Services CLI (`awscli`)
 - Cypress (`cypress`)
 - Docker-in-Docker (`dind`)
@@ -49,6 +50,15 @@ Latest URL: `govtechsg/cicd-images:alpine-latest`
 ##### Notes
 
 We use Alpine for our production deployments, only makes sense to run stuff in Alpine. This image contains common tools in pipelines and should serve most general needs. If you need more pacakges, feel free to submit a pull request with the required APK packages.
+
+#### `ansible`
+
+Canonical Tag: `ansible-<ANSIBLE_VERSION>` \
+Latest URL: `govtechsg/cicd-images:ansible-latest`
+
+##### Notes
+
+This image also contains Ansible-lint and Boto3 so you can lint your Ansible playbooks and use Ansible playbooks to automate stuff on AWS respectively
 
 #### `awscli`
 

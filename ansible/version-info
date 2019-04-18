@@ -1,0 +1,11 @@
+#!/bin/sh
+
+VERSION_ALPINE="$(cat /etc/alpine-release)";
+VERSION_ANSIBLE="$(ansible --version | head -n 1 | cut -f 2 -d ' ')";
+VERSION_ANSIBLE_LINT="$(ansible-lint --version | cut -f 2 -d ' ')";
+VERSION_PYTHON="$(python --version 2>&1 | awk '{print $2}')";
+
+printf "alpine:%s\n" "${VERSION_ALPINE}";
+printf "ansible:%s\n" "${VERSION_ANSIBLE}";
+printf "ansible-lint:%s\n" "${VERSION_ANSIBLE_LINT}";
+printf "python:%s\n" "${VERSION_PYTHON}";
