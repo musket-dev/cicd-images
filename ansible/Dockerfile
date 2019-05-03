@@ -4,7 +4,7 @@ LABEL maintainer="salihan" \
       description="Image containing Ansible and Ansible-lint for use in CI/CD pipelines"
 
 ARG python=3.6.8-r2
-ARG openssh_client=7.9_p1-r4
+ARG openssh_client=7.9_p1-r5
 ARG sudo=1.8.25_p1-r2
 ARG curl=7.64.0-r1
 ARG gcc=8.3.0-r0
@@ -15,6 +15,8 @@ ARG pip_ver=19.0.3
 ARG ansible_lint=4.1.0
 ARG boto3_ver=1.9.125
 ARG boto2_ver=2.49.0
+ARG user=cicd
+ARG group=cicd
 
 COPY ./version-info /usr/bin
 
@@ -31,10 +33,12 @@ ENV USERID="1001" \
     PIP=${pip_ver} \
     ANSIBLE_LINT=${ansible_lint} \
     BOTO3=${boto3_ver} \
-    BOTO2=${boto2_ver}
+    BOTO2=${boto2_ver} \
+    USER=${user} \
+    GROUP=${group}
 
-RUN addgroup -S cicd -g ${GROUPID} \
-  && adduser -D -S cicd -u ${USERID} -G cicd \
+RUN addgroup -S ${GROUP} -g ${GROUPID} \
+  && adduser -D -S ${USER} -u ${USERID} -G ${GROUP} \
   && apk update \
   && apk add --no-cache python3=${PYTHON} \
     openssh-client=${OPENSSH_CLIENT} \
@@ -80,4 +84,4 @@ RUN addgroup -S cicd -g ${GROUPID} \
   && deluser --remove-home smmsp \
   && deluser --remove-home guest
 
-  USER cicd
+  USER ${USER}
