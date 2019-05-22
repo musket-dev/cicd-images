@@ -1,4 +1,4 @@
-ARG alpine_ver=3.9
+ARG alpine_ver=3.9.4
 FROM alpine:${alpine_ver}
 LABEL maintainer="salihan" \
       description="Image containing Ansible and Ansible-lint for use in CI/CD pipelines"
@@ -11,7 +11,7 @@ ARG gcc=8.3.0-r0
 ARG zip=3.0-r7
 ARG bash=4.4.19-r1
 ARG ansible=2.7.0-r1
-ARG pip_ver=19.0.3
+ARG pip_ver=19.1.1
 ARG ansible_lint=4.1.0
 ARG boto3_ver=1.9.125
 ARG boto2_ver=2.49.0
@@ -20,22 +20,22 @@ ARG group=cicd
 
 COPY ./version-info /usr/bin
 
-ENV USERID="1001" \
-    GROUPID="1001" \
-    PYTHON=${python} \
-    OPENSSH_CLIENT=${openssh_client} \
-    SUDO=${sudo} \
-    CURL=${curl} \
-    GCC=${gcc} \
-    ZIP=${zip} \
-    BASH=${bash} \
-    ANSIBLE=${ansible} \
-    PIP=${pip_ver} \
-    ANSIBLE_LINT=${ansible_lint} \
-    BOTO3=${boto3_ver} \
-    BOTO2=${boto2_ver} \
-    USER=${user} \
-    GROUP=${group}
+ENV USERID="1101" \
+  GROUPID="1101" \
+  PYTHON=${python} \
+  OPENSSH_CLIENT=${openssh_client} \
+  SUDO=${sudo} \
+  CURL=${curl} \
+  GCC=${gcc} \
+  ZIP=${zip} \
+  BASH=${bash} \
+  ANSIBLE=${ansible} \
+  PIP=${pip_ver} \
+  ANSIBLE_LINT=${ansible_lint} \
+  BOTO3=${boto3_ver} \
+  BOTO2=${boto2_ver} \
+  USER=${user} \
+  GROUP=${group}
 
 RUN addgroup -S ${GROUP} -g ${GROUPID} \
   && adduser -D -S ${USER} -u ${USERID} -G ${GROUP} \
@@ -84,4 +84,4 @@ RUN addgroup -S ${GROUP} -g ${GROUPID} \
   && deluser --remove-home smmsp \
   && deluser --remove-home guest
 
-  USER ${USER}
+USER ${USER}
