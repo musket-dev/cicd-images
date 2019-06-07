@@ -1,4 +1,4 @@
-ARG REPO_TAG="8.9.4-alpine"
+ARG REPO_TAG="lts-alpine"
 FROM node:${REPO_TAG}
 LABEL maintainer="zephinzer <dev-at-joeir-dot-net>" \
       description="Image used for running Karma with ChromeHeadless browser. Requires the --no-sandbox flag to be specified to work."
