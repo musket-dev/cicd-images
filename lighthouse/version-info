@@ -1,0 +1,11 @@
+#!/bin/sh
+VERSION_UBUNTU=$(lsb_release --codename | cut -d':' -f2 | tr -d "\t");
+VERSION_AWSCLI=$(aws --v | cut -f 1 -d ' ' | cut -f 2 -d '/')
+VERSION_CHROMIUM=$(chrome --version | tr -d "Google Chrome")
+VERSION_CHROMEDRIVER=$(chromedriver -v | tr -d "ChromeDriver ")
+VERSION_LIGHTHOUSE=$(lighthouse --version)
+printf "ubuntu:${VERSION_UBUNTU}\n";
+printf "awscli:${VERSION_AWSCLI}\n";
+printf "chromium:${VERSION_CHROMIUM}\n";
+printf "chromedriver:${VERSION_CHROMEDRIVER}\n";
+printf "lighthouse:${VERSION_LIGHTHOUSE}\n";
