@@ -42,8 +42,6 @@ All images will contain some tools essential for most operations that will happe
 
 #### `alpine`
 
-[![Anchore Image Overview](https://anchore.io/service/badges/image/1ceaf7691d3850560b5688794d50861239b6b16cd2042b6d6e0844d2c336e455)](https://anchore.io/preview/dockerhub/govtechsg%2Fcicd-images%3Aalpine-latest)
-
 Canonical Tag: `alpine-<ALPINE_VERSION>` \
 Latest URL: `govtechsg/cicd-images:alpine-latest`
 
@@ -61,8 +59,6 @@ Latest URL: `govtechsg/cicd-images:ansible-latest`
 This image also contains Ansible-lint and Boto3 so you can lint your Ansible playbooks and use Ansible playbooks to automate stuff on AWS respectively
 
 #### `awscli`
-
-[![Anchore Image Overview](https://anchore.io/service/badges/image/92f57e60caf542f7a265059daa41c743d9008c897ea146f36a409df48d4058f1)](https://anchore.io/image/dockerhub/92f57e60caf542f7a265059daa41c743d9008c897ea146f36a409df48d4058f1?repo=govtechsg%2Fcicd-images&tag=awscli-latest)
 
 Canonical Tag: `awscli-<AWS_CLI_VERSION>` \
 Latest URL: `govtechsg/cicd-images:awscli-latest`
@@ -102,8 +98,6 @@ See https://github.com/govtechsg/version-tagging-scripts for more information on
 
 #### `dind`
 
-[![Anchore Image Overview](https://anchore.io/service/badges/image/e595de9a2f9534bad0aa758637c4a3e63277402297f6dfc660fa0b9383ff84bb)](https://anchore.io/image/dockerhub/e595de9a2f9534bad0aa758637c4a3e63277402297f6dfc660fa0b9383ff84bb?repo=govtechsg%2Fcicd-images&tag=dind-latest)
-
 Canonical Tag: `dind-<DOCKER_VERSION>` \
 Latest URL: `govtechsg/cicd-images:dind-latest`
 
@@ -117,8 +111,6 @@ You will need to configure this image so that the host file at path `/var/run/do
 
 #### `gkecli`
 
-[![Anchore Image Overview](https://anchore.io/service/badges/image/ccc9d7e61d0d7ba0c02c76e91434ffe0f8fd3e7dff74ee10cf653873198b5262)](https://anchore.io/image/dockerhub/ccc9d7e61d0d7ba0c02c76e91434ffe0f8fd3e7dff74ee10cf653873198b5262?repo=govtechsg%2Fcicd-images&tag=gkecli-latest)
-
 Canonical Tag: `gkecli-<GOOGLE_SDK_VERSION>` \
 Latest URL: `govtechsg/cicd-images:gkecli-latest`
 
@@ -130,8 +122,6 @@ An additional child image, or a script should be added to this to set Google cre
 
 #### `karma`
 
-[![Anchore Image Overview](https://anchore.io/service/badges/image/e71cf4dedbb3f98d164c1b39c13ecb65f1df46ca2172ff5a1c788ac9f0dd6828)](https://anchore.io/image/dockerhub/e71cf4dedbb3f98d164c1b39c13ecb65f1df46ca2172ff5a1c788ac9f0dd6828?repo=govtechsg%2Fcicd-images&tag=karma-latest)
-
 Canonical Tag: `karma-<CHROMIUM_VERSION>` \
 Latest URL: `govtechsg/cicd-images:karma-latest`
 
@@ -141,8 +131,6 @@ Karma is not included in the `karma` image, this image only provides the base fo
 
 #### `kubectl`
 
-[![Anchore Image Overview](https://anchore.io/service/badges/image/5b7aa7d94f99117237888532d546cad600aae49afc63769190bea52e85a6a302)](https://anchore.io/image/dockerhub/5b7aa7d94f99117237888532d546cad600aae49afc63769190bea52e85a6a302?repo=govtechsg%2Fcicd-images&tag=kubectl-latest)
-
 Canonical Tag: `kubectl-<KUBECTL_VERSION>` \
 Latest URL: `govtechsg/cicd-images:kubectl-latest`
 
@@ -151,8 +139,6 @@ Latest URL: `govtechsg/cicd-images:kubectl-latest`
 For use when there's a deployment to a Kubernetes deployment.
 
 #### `node`
-
-[![Anchore Image Overview](https://anchore.io/service/badges/image/b57dcf8f428ef90f551b75935c621a44925f68aa52f9d4394e0a6ad05cc0a30d)](https://anchore.io/image/dockerhub/b57dcf8f428ef90f551b75935c621a44925f68aa52f9d4394e0a6ad05cc0a30d?repo=govtechsg%2Fcicd-images&tag=node-latest)
 
 Canonical Tag: `node-<NODE_VERSION>` \
 Latest URL: `govtechsg/cicd-images:node<NODE_MAJOR_VERSION>-latest`
@@ -164,8 +150,6 @@ All LTS versions of Node, and the latest major version (LTS or otherwise) are bu
 - https://github.com/nodejs/Release
 
 #### `robot-selenium`
-
-[![Anchore Image Overview](https://anchore.io/service/badges/image/cab737500036d300fe203a19f78fa9e4a4a49fa53e9b4a4190c1c700d10bc3fc)](https://anchore.io/image/dockerhub/cab737500036d300fe203a19f78fa9e4a4a49fa53e9b4a4190c1c700d10bc3fc?repo=govtechsg%2Fcicd-images&tag=robot-selenium-latest)
 
 Latest URL: `govtechsg/cicd-images:robot-selenium-latest`
 
@@ -181,7 +165,6 @@ Python Versions:
 
 Current Oracle Version: 12.1.0.2.0
 
-
 ##### Notes
 * Versions available are listed [here](https://hub.docker.com/_/python/). The downloaded python image version will be as follows: python:${PYTHON_VERSION}-slim-stretch
 * For use as a base image for robot regression frameworks.
@@ -193,16 +176,12 @@ Current Oracle Version: 12.1.0.2.0
       ```
       Or just just mount requirements.txt to container and include `pip install -r requirements.txt` in your entrypoint.
 
-
-
 #### `trinity`
 
 Canonical Tag: `trinity-<AWS_CLI_VERSION>-<DOCKER_VERSION>-<KUBECT_VERSION>` \
 Latest URL: `govtechsg/cicd-images:trinity-latest`
 
 #### `vtscripts`
-
-[![Anchore Image Overview](https://anchore.io/service/badges/image/67d5a49c09e43b95468a4bd4488d02125981013180af3733532977fdaa283ed2)](https://anchore.io/image/dockerhub/67d5a49c09e43b95468a4bd4488d02125981013180af3733532977fdaa283ed2?repo=govtechsg%2Fcicd-images&tag=vtscripts-latest)
 
 Canonical Tag: `vtscripts-<VTSCRIPTS>` \
 Latest URL: `govtechsg/cicd-images:vtscripts-latest`
