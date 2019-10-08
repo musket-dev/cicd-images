@@ -1,0 +1,6 @@
+#!/bin/sh
+VERSION_CHROME="$(google-chrome --version | cut -d ' ' -f 3)";
+VERSION_RUBY="$(ruby --version | cut -d ' ' -f 2)";
+printf "ruby:${VERSION_RUBY}\n";
+VERSION_CODE="$(cat /commit.rb | md5sum| cut -d ' ' -f 1)"
+printf "code:${VERSION_CODE}\n";
