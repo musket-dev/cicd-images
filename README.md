@@ -20,6 +20,7 @@ https://hub.docker.com/r/govtechsg/cicd-images
 - Kubernetes Client (`kubectl`)
 - Trinity (`awscli` + `docker` + `kubectl`)
 - Node.js (`node`)
+- Pivotal Tracker Commit json (`pivotaltracker-commit`)
 - Robot Selenium (`robot-selenium`)
 - Robot Selenium Generic Image (`chrome-oracle-py`)
 - Version Tagging Scripts (`vtscripts`)
@@ -148,6 +149,11 @@ Latest URL: `govtechsg/cicd-images:node<NODE_MAJOR_VERSION>-latest`
 All LTS versions of Node, and the latest major version (LTS or otherwise) are builit.
 
 - https://github.com/nodejs/Release
+
+#### `pivotaltracker-commit`
+
+Canonical Tag: `pivotaltracker-commit-ruby-<VERSION_RUBY>_code-><VERSION_CODE>` \
+Latest URL: `govtechsg/cicd-images:pivotaltracker-commit-latest`
 
 #### `robot-selenium`
 
