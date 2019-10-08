@@ -184,7 +184,7 @@ jobs:
           fi;
     - stage: publish
       env:
-        - IMAGE_NAME: pivotalTracker-commit
+        - IMAGE_NAME: pivotaltracker-commit
       script:
         - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}";
         - |
