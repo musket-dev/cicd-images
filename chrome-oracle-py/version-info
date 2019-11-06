@@ -3,7 +3,10 @@
 VERSION_CHROMEDRIVER="$(chromedriver --version | cut -f 2 -d ' ')";
 VERSION_CHROME="$(chrome --version | cut -f 3 -d ' ')";
 VERSION_PYTHON="$(python --version 2>&1 | awk '{print $2}')";
+VERSION_ORACLE=$ORACLE_VERSION
 
 printf "chromedriver:${VERSION_CHROMEDRIVER}\n";
 printf "chrome:${VERSION_CHROME}\n";
 printf "python:${VERSION_PYTHON}\n";
+printf "oracle:${VERSION_ORACLE}\n";
+e

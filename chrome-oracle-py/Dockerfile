@@ -44,17 +44,20 @@ RUN CHROME_VERSION=$(chrome --version | cut -d. -f-3) \
 # -----------------------------
 # install oracle
 # -----------------------------
-ENV LD_LIBRARY_PATH=/opt/oracle/instantclient_12_1 \
+ARG ORACLE_VERSION=12.2.0.1.0
+ENV LD_LIBRARY_PATH=/opt/oracle/${ORACLE_VERSION} \
     LD_RUN_PATH=$LD_LIBRARY_PATH
 
-COPY instantclient/* /tmp/
+COPY instantclient/${ORACLE_VERSION}/* /tmp/
 
 RUN apt-get update && apt-get install -y \
     unzip build-essential libssl-dev libffi-dev lib32ncurses5-dev libaio1 && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /opt/oracle && \
-    unzip "/tmp/instantclient*.zip" -d /opt/oracle && \
-    ln -s $LD_LIBRARY_PATH/libclntsh.so.12.1 $LD_LIBRARY_PATH/libclntsh.so
+    unzip "/tmp/instantclient*.zip" -d /opt/oracle
+    
+    # && \
+    # ln -s $LD_LIBRARY_PATH/libclntsh.so.12.1 $LD_LIBRARY_PATH/libclntsh.so
 
 # -----------------------------
 # check versions
