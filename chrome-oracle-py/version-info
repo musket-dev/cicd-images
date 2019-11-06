@@ -9,4 +9,3 @@ printf "chromedriver:${VERSION_CHROMEDRIVER}\n";
 printf "chrome:${VERSION_CHROME}\n";
 printf "python:${VERSION_PYTHON}\n";
 printf "oracle:${VERSION_ORACLE}\n";
-e
