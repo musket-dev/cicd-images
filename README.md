@@ -161,15 +161,16 @@ Latest URL: `govtechsg/cicd-images:robot-selenium-latest`
 
 #### `chrome-oracle-py`
 
-Canonical Tag: `chrome-oracle-py<PYTHON_VERSION>` \
-Latest URL: `govtechsg/cicd-images:chrome-oracle-py<PYTHON_VERSION>-latest`
+Canonical Tag: `chrome-oracle-py-<ORACLE_VERSION>-<PYTHON_VERSION>` \
+Latest URL: `govtechsg/cicd-images:chrome-oracle-py-<ORACLE_VERSION>-<PYTHON_VERSION>-latest`
 
 Python Versions:
 * 2.7
 * 3.6
 * 3.7
 
-Current Oracle Version: 12.1.0.2.0
+Oracle Versions:
+* 12.2.0.1.0
 
 ##### Notes
 * Versions available are listed [here](https://hub.docker.com/_/python/). The downloaded python image version will be as follows: python:${PYTHON_VERSION}-slim-stretch
