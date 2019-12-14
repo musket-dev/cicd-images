@@ -23,6 +23,7 @@ https://hub.docker.com/r/govtechsg/cicd-images
 - Pivotal Tracker Commit json (`pivotaltracker-commit`)
 - Robot Selenium (`robot-selenium`)
 - Robot Selenium Generic Image (`chrome-oracle-py`)
+- Sqlplus (`sqlplus`)
 - Version Tagging Scripts (`vtscripts`)
 
 ### Release Notes
@@ -182,6 +183,13 @@ Oracle Versions:
       RUN pip install -r requirements.txt
       ```
       Or just just mount requirements.txt to container and include `pip install -r requirements.txt` in your entrypoint.
+
+#### `sqlplus`
+Canonical Tag: `sqlplus-<ORACLE_VERSION>` \
+Latest URL: `govtechsg/cicd-images:sqlplus-<ORACLE_VERSION>-latest`
+
+Oracle Versions:
+* 12.2
 
 #### `trinity`
 
