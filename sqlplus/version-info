@@ -1,0 +1,4 @@
+#!/bin/sh
+
+VERSION_ORACLE=$ORACLE_VERSION
+printf "oracle:${VERSION_ORACLE}\n";

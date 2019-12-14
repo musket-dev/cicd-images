@@ -283,6 +283,21 @@ jobs:
             fi;
           fi;
 
+    - stage: publish
+      env:
+        - IMAGE_NAME: sqlplus
+        - ORACLE_VERSION: 12.2
+      script:
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" ORACLE_VERSION=${ORACLE_VERSION};
+        - |
+          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+            if [ "${TRAVIS_COMMIT_MESSAGE##*'[force build]'*}"  ]; then
+              ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}" --force;
+            else
+              ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+            fi;
+          fi;
+
     - stage: release
       env:
         - TO: github
