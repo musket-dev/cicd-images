@@ -1,19 +1,19 @@
-ARG alpine_ver=3.11.3
+ARG alpine_ver=3.9.4
 FROM alpine:${alpine_ver}
 LABEL maintainer="salihan" \
       description="Image containing Ansible and Ansible-lint for use in CI/CD pipelines"
 
-ARG python=3.8.1-r0
-ARG openssh_client=8.1_p1-r0
-ARG sudo=1.8.29-r0
-ARG curl=7.67.0-r0
-ARG gcc=9.2.0-r3
+ARG python=3.6.8-r2
+ARG openssh_client=7.9_p1-r5
+ARG sudo=1.8.25_p1-r2
+ARG curl=7.64.0-r1
+ARG gcc=8.3.0-r0
 ARG zip=3.0-r7
-ARG bash=5.0.11-r1
-ARG ansible=2.9.3-r0
-ARG pip_ver=19.3.1
-ARG ansible_lint=4.2.0
-ARG boto3_ver=1.11.5
+ARG bash=4.4.19-r1
+ARG ansible=2.7.0-r1
+ARG pip_ver=19.1.1
+ARG ansible_lint=4.1.0
+ARG boto3_ver=1.9.125
 ARG boto2_ver=2.49.0
 ARG user=cicd
 ARG group=cicd
