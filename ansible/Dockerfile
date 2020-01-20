@@ -78,7 +78,6 @@ RUN addgroup -S ${GROUP} -g ${GROUPID} \
   && deluser --remove-home squid \
   && deluser --remove-home xfs \
   && deluser --remove-home games \
-  && deluser --remove-home postgres \
   && deluser --remove-home vpopmail \
   && deluser --remove-home ntp \
   && deluser --remove-home smmsp \
