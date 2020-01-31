@@ -21,7 +21,6 @@ https://hub.docker.com/r/govtechsg/cicd-images
 - Trinity (`awscli` + `docker` + `kubectl`)
 - Node.js (`node`)
 - Pivotal Tracker Commit json (`pivotaltracker-commit`)
-- Robot Selenium (`robot-selenium`)
 - Robot Selenium Generic Image (`chrome-oracle-py`)
 - Sqlplus (`sqlplus`)
 - Version Tagging Scripts (`vtscripts`)
