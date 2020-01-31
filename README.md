@@ -156,10 +156,6 @@ All LTS versions of Node, and the latest major version (LTS or otherwise) are bu
 Canonical Tag: `pivotaltracker-commit-ruby-<VERSION_RUBY>_code-><VERSION_CODE>` \
 Latest URL: `govtechsg/cicd-images:pivotaltracker-commit-latest`
 
-#### `robot-selenium`
-
-Latest URL: `govtechsg/cicd-images:robot-selenium-latest`
-
 #### `chrome-oracle-py`
 
 Canonical Tag: `chrome-oracle-py-<ORACLE_VERSION>-<PYTHON_VERSION>` \
