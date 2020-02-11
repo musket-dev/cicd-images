@@ -1,4 +1,4 @@
-FROM cypress/browsers:node10.16.0-chrome76
+FROM cypress/browsers:latest
 
 LABEL maintainer="jinjie" \
       description="Image used for running Cypress testing framework"
