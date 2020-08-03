@@ -9,7 +9,7 @@ RUN npm install -g mysql \
                    cypress-eslint-preprocessor \
                    cypress-promise \
                    cypress-plugin-retries \
-                   eslint fs-extra prettier \
+                   eslint fs-extra prettier
 
 COPY ./version-info /usr/bin
 
