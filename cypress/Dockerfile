@@ -1,4 +1,4 @@
-FROM cypress/browsers:node13.8.0-chrome81-ff75
+FROM cypress/browsers:node12.14.1-chrome85-ff81	
 
 LABEL maintainer="jinjie" \
       description="Image used for running Cypress testing framework"
