@@ -16,7 +16,12 @@ COPY ./version-info /usr/bin
 
 RUN chmod +x /usr/bin/version-info
 
-RUN npm link mocha mochawesome mochawesome-merge \
+RUN npm link mysql \
+             mocha mocha-steps mochawesome mochawesome-merge \
              mochawesome-report-generator \
-             fs-extra \
+             cypress-eslint-preprocessor \
+             cypress-promise \
+             cypress-xpath \
+             eslint faker fs-extra moment prettier dotenv \
+             lodash date-fns \ 
              cypress
