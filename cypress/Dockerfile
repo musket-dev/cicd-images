@@ -18,4 +18,4 @@ COPY ./version-info /usr/bin
 
 RUN chmod +x /usr/bin/version-info
 
-RUN npm link $libList
+RUN npm link cypress $libList
