@@ -5,15 +5,11 @@ services:
 branches:
   only:
     - master
-notifications:
-  email:
-    - dev@joeir.net
 stages:
   - lint
   - publish
   - release
 before_install:
-  - sudo add-apt-repository ppa:duggan/bats --yes
   - sudo apt-get update -qq
   - sudo apt-get install -qq bats python-pip python-setuptools
   - sudo pip install awscli
