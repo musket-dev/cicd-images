@@ -10,12 +10,12 @@ stages:
   - publish
   - release
 before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq bats python-pip python-setuptools
-  - sudo pip install awscli
+  - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  - unzip awscliv2.zip
+  - ./aws/install
 before_script:
   - docker login -u "${DH_USERNAME}" -p "${DH_PASSWORD}";
-  - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
+  - /use/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
 after_script:
   - docker logout
 jobs:
