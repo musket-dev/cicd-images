@@ -14,6 +14,7 @@ stages:
   - release
 before_script:
   - docker login -u "${DH_USERNAME}" -p "${DH_PASSWORD}";
+  - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
 after_script:
   - docker logout
 jobs:
@@ -22,13 +23,15 @@ jobs:
       env:
         - IMAGE_NAME: alpine
       script:
-        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}";
+        - ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" "" "${ECR_REPO}";
         - |
           if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
             if [ "${TRAVIS_COMMIT_MESSAGE##*'[force build]'*}"  ]; then
               ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}" --force;
+              ./${IMAGE_NAME}/.publish.sh "${ECR_REPO}:${IMAGE_NAME}" --force;
             else
               ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+              ./${IMAGE_NAME}/.publish.sh "${ECR_REPO}:${IMAGE_NAME}";
             fi;
           fi;
     - stage: lint
