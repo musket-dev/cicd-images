@@ -16,7 +16,7 @@ before_install:
   - sudo ./aws/install
 before_script:
   - docker login -u "${DH_USERNAME}" -p "${DH_PASSWORD}";
-  - /use/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
+  - /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
 after_script:
   - docker logout
 jobs:
