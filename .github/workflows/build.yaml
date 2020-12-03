@@ -44,8 +44,11 @@ jobs:
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
+        if: "!contains(github.event.head_commit.message, '[force build]')"
         uses: ./.github/actions/build-and-publish
-        uses: govtechsg/cicd-images/.github/actions/build-and-publish@master
+      - name: Build and Publish (force)
+        if: "contains(github.event.head_commit.message, '[force build]')"
+        uses: ./.github/actions/build-and-publish-force
 
   ansible:
     env:
