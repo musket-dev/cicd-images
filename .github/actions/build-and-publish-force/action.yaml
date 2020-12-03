@@ -1,7 +1,7 @@
 name: 'build and publish firce'
 description: 'Builds and Publish the docker image with force push'
 inputs:
-  BUILD_ARGS:  # id of input
+  docker_build_args:  # id of input
     description: 'Docker build arguments'
     required: false
     default: ""
@@ -10,7 +10,7 @@ runs:
   steps:
     - name: Build and publish force
       run: |
-        ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" "${{ inputs.BUILD_ARGS }}" "${ECR_REPO}";
+        ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" "${{ inputs.docker_build_args}}" "${ECR_REPO}";
         ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}" --force;
         ./${IMAGE_NAME}/.publish.sh "${ECR_REPO}:${IMAGE_NAME}" --force;
       shell: bash
