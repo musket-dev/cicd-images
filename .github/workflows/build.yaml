@@ -23,6 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       IMAGE_NAME: alpine
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
     name: alpine
     steps:
       - uses: actions/checkout@v2
