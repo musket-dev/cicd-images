@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -ex
 CURR_DIR=$(dirname $0);
 IMAGE_URL=$1
