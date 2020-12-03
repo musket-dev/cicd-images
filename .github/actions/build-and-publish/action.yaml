@@ -4,14 +4,8 @@ runs:
   using: "composite"
   steps:
     - name: Build and publish
-      if: "!contains(github.event.head_commit.message, '[force build]')"
       run: |
         ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" "" "${ECR_REPO}";
         ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
         ./${IMAGE_NAME}/.publish.sh "${ECR_REPO}:${IMAGE_NAME}";
-    - name: Build and publish force
-      if: "contains(github.event.head_commit.message, '[force build]')"
-      run: |
-        ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" "" "${ECR_REPO}";
-        ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}" --force;
-        ./${IMAGE_NAME}/.publish.sh "${ECR_REPO}:${IMAGE_NAME}" --force;
+      shell: bash

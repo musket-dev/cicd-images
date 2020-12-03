@@ -1,0 +1,11 @@
+name: 'build and publish firce'
+description: 'Builds and Publish the docker image with force push'
+runs:
+  using: "composite"
+  steps:
+    - name: Build and publish force
+      run: |
+        ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" "" "${ECR_REPO}";
+        ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}" --force;
+        ./${IMAGE_NAME}/.publish.sh "${ECR_REPO}:${IMAGE_NAME}" --force;
+      shell: bash
