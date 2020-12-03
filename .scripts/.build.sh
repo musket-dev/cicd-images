@@ -3,7 +3,7 @@ CURR_DIR=$(dirname $0);
 IMAGE_URL=$1
 IMAGE_TAG=$2;
 BUILD_ARGS=$3;
-ADDITIONAL_URL=$4
+ADDITIONAL_URL=$4;
 if [ "${IMAGE_URL}" = "" ]; then
   printf "\n\e[31m\e[1m[!] Specify the namspace to build as the first argument.\e[0m\n";
   exit 1;
@@ -23,7 +23,7 @@ else
 fi;
 
 docker build \
-  "${ADDITIONAL_BUILD_ARGS}" \
+  ${ADDITIONAL_BUILD_ARGS} \
   --no-cache \
   --file "${CURR_DIR}"/../"${IMAGE_TAG}"/Dockerfile \
   --tag "${NEXT_TAG}" \
