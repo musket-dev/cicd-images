@@ -44,7 +44,7 @@ jobs:
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
-        uses: ./.github/actions/build-and-publish
+        uses: govtechsg/cicd-images/.github/actions/build-and-publish@master
 
   ansible:
     env:
@@ -69,4 +69,4 @@ jobs:
       - name: ECR public login
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
-        uses: ./.github/actions/build-and-publish
+        uses: govtechsg/cicd-images/.github/actions/build-and-publish@master
