@@ -7,6 +7,7 @@ This repository is a collection of Docker images we use internally for continuou
 Daily builds are run against these images and automatically sent to our DockerHub and the public ECR repository at
 
 https://hub.docker.com/r/govtechsg/cicd-images
+
 https://gallery.ecr.aws/l5k6t5t7/cicd-images
 
 ## Catalog (Alphabetical Order)
