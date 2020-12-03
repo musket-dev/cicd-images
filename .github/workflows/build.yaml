@@ -46,7 +46,7 @@ jobs:
       - name: Build and publish
         run: |
           ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" "" "${ECR_REPO}";
-          if [ "${${{ github.event.head_commit.message }}##*'[force build]'*}}"  ]; then
+          if [ "${${{ github.event.head_commit.message }}##*'[force build]'*}"  ]; then
             ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}" --force;
             ./${IMAGE_NAME}/.publish.sh "${ECR_REPO}:${IMAGE_NAME}" --force;
           else
