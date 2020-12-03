@@ -38,9 +38,8 @@ jobs:
           unzip awscliv2.zip
           sudo ./aws/install
       - name: Docker login
-        run: |
-          docker login -u "${{ secrets.DH_USERNAME }}" -p "${{ secrets.DH_PASSWORD }}";
-          /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
+        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
+        run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and publish
         run: |
           ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" "" "${ECR_REPO}";
