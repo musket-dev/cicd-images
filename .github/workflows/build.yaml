@@ -6,7 +6,7 @@ on:
   push:
     branches: [ master ]
 
-ENV:
+env:
   ECR_REPO: public.ecr.aws/l5k6t5t7/cicd-images
   DH_REPO: govtechsg/cicd-images
 
