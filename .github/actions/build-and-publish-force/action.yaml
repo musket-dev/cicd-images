@@ -1,11 +1,16 @@
 name: 'build and publish firce'
 description: 'Builds and Publish the docker image with force push'
+inputs:
+  BUILD_ARGS:  # id of input
+    description: 'Docker build arguments'
+    required: false
+    default: ''
 runs:
   using: "composite"
   steps:
     - name: Build and publish force
       run: |
-        ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" "" "${ECR_REPO}";
+        ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" ${{ inputs.BUILD_ARGS }} "${ECR_REPO}";
         ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}" --force;
         ./${IMAGE_NAME}/.publish.sh "${ECR_REPO}:${IMAGE_NAME}" --force;
       shell: bash
