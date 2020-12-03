@@ -1,12 +1,13 @@
 # CI/CD Containers for Pipelines
 
-[![Build Status](https://travis-ci.org/GovTechSG/cicd-images.svg?branch=master)](https://travis-ci.org/GovTechSG/cicd-images)
+![Build and Publish](https://github.com/govtechsg/cicd-images/workflows/build%20and%20publish/badge.svg)
 
 This repository is a collection of Docker images we use internally for continuous integration/delivery pipelines.
 
-Daily builds are run against these images and automatically sent to our DockerHub repository at:
+Daily builds are run against these images and automatically sent to our DockerHub and the public ECR repository at
 
 https://hub.docker.com/r/govtechsg/cicd-images
+https://gallery.ecr.aws/l5k6t5t7/cicd-images
 
 ## Catalog (Alphabetical Order)
 
