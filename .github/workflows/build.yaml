@@ -13,7 +13,7 @@ ENV:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    name: alpine
+    name: lint
     - uses: actions/checkout@v2
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
