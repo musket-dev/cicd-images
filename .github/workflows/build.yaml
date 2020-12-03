@@ -22,7 +22,7 @@ jobs:
   alpine:
     runs-on: ubuntu-latest
     env:
-      - IMAGE_NAME: alpine
+      IMAGE_NAME: alpine
     name: alpine
     steps:
       - uses: actions/checkout@v2
