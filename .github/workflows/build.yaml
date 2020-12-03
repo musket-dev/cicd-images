@@ -46,12 +46,10 @@ jobs:
       - name: Build and publish
         run: |
           ./.scripts/.build.sh "${DH_REPO}" "${IMAGE_NAME}" "" "${ECR_REPO}";
-          if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
-            if [ "${TRAVIS_COMMIT_MESSAGE##*'[force build]'*}"  ]; then
-              ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}" --force;
-              ./${IMAGE_NAME}/.publish.sh "${ECR_REPO}:${IMAGE_NAME}" --force;
-            else
-              ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
-              ./${IMAGE_NAME}/.publish.sh "${ECR_REPO}:${IMAGE_NAME}";
-            fi;
+          if [ "${${{ github.event.head_commit.message }}##*'[force build]'*}}"  ]; then
+            ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}" --force;
+            ./${IMAGE_NAME}/.publish.sh "${ECR_REPO}:${IMAGE_NAME}" --force;
+          else
+            ./${IMAGE_NAME}/.publish.sh "${DH_REPO}:${IMAGE_NAME}";
+            ./${IMAGE_NAME}/.publish.sh "${ECR_REPO}:${IMAGE_NAME}";
           fi;
