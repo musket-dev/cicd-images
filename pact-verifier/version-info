@@ -1,0 +1,4 @@
+VERSION_RUBY="$(ruby --version | cut -d ' ' -f 2)";
+printf "ruby:${VERSION_RUBY}\n";
+VERSION_PACT_VERIFIER="$(pact-provider-verifier version)";
+printf "pact-provider-verifier:${VERSION_PACT_VERIFIER}\n";
