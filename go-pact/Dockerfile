@@ -8,6 +8,6 @@ RUN curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/do
 RUN tar xzf pact-$PACT_RUBY_STANDALONE_VERSION-linux-x86_64.tar.gz
 
 ENV PATH="/opt/pact/bin:${PATH}"
-
+COPY ./version-info /usr/bin/
 WORKDIR /go/src
 
