@@ -9,5 +9,6 @@ RUN tar xzf pact-$PACT_RUBY_STANDALONE_VERSION-linux-x86_64.tar.gz
 
 ENV PATH="/opt/pact/bin:${PATH}"
 COPY ./version-info /usr/bin/
+RUN chmod +x /usr/bin/version-info
 WORKDIR /go/src
 
