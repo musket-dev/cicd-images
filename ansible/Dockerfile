@@ -4,9 +4,9 @@ LABEL maintainer="salihan" \
       description="Image containing Ansible and Ansible-lint for use in CI/CD pipelines"
 
 ARG python=3.8.5-r0
-ARG openssh_client=8.3_p1-r0
+ARG openssh_client=8.3_p1-r1
 ARG sudo=1.9.0-r0
-ARG curl=7.69.1-r2
+ARG curl=7.69.1-r3
 ARG gcc=9.3.0-r2
 ARG zip=3.0-r8
 ARG bash=5.0.17-r0
