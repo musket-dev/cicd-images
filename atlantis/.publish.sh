@@ -10,7 +10,7 @@ VERSION_TERRAGRUNT=$(printf "${VERSIONS}" | grep terragrunt | cut -f 2 -d ':');
 VERSION_TERRAFORM=$(printf "${VERSIONS}" | grep terraform | cut -f 2 -d ':');
 EXISTENCE_TAG="atlantis-${VERSION_ATLANTIS}_terragrunt-${VERSION_TERRAGRUNT}_terraform-${VERSION_TERRAFORM}";
 EXISTENCE_REPO_URL="${REPOSITORY_URL}-${EXISTENCE_TAG}";
-REPO_URL="${REPOSITORY_URL}-${VERSION_AWS}";
+REPO_URL="${REPOSITORY_URL}-${VERSION_ATLANTIS}";
 
 printf "Checking existence of [${EXISTENCE_REPO_URL}]...";
 _="$(docker pull "${EXISTENCE_REPO_URL}")" && EXISTS=$?;
