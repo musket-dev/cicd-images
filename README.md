@@ -14,6 +14,7 @@ https://gallery.ecr.aws/l5k6t5t7/cicd-images
 
 - Alpine Linux (`alpine`)
 - Ansible (`ansible`)
+- Atlantis (`atlantis`)
 - Amazon Web Services CLI (`awscli`)
 - Cypress (`cypress`)
 - Docker-in-Docker (`dind`)
@@ -60,6 +61,11 @@ Latest URL: `govtechsg/cicd-images:ansible-latest`
 ##### Notes
 
 This image also contains Ansible-lint and Boto3 so you can lint your Ansible playbooks and use Ansible playbooks to automate stuff on AWS respectively
+
+#### `atlantis`
+
+Canonical Tag: `atlantis-<ANSIBLE_VERSION>` \
+Latest URL: `govtechsg/cicd-images:atlantis-latest`
 
 #### `awscli`
 

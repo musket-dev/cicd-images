@@ -67,6 +67,28 @@ jobs:
         if: "contains(github.event.head_commit.message, '[force build]')"
         uses: ./.github/actions/build-and-publish-force
 
+  atlantis:
+    env:
+      IMAGE_NAME: atlantis
+    runs-on: ubuntu-latest
+    name: atlantis
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Install dependencies
+        uses: ./.github/actions/install-dep
+      - name: Dockerhub login
+        run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
+      - name: ECR public login
+        run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
+      - name: Build and Publish
+        if: "!contains(github.event.head_commit.message, '[force build]')"
+        uses: ./.github/actions/build-and-publish
+      - name: Build and Publish (force)
+        if: "contains(github.event.head_commit.message, '[force build]')"
+        uses: ./.github/actions/build-and-publish-force
+
   awscli:
     env:
       IMAGE_NAME: awscli
