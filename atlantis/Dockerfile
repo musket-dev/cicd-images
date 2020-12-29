@@ -17,7 +17,18 @@ RUN apk add --update --upgrade --no-cache ${APK_DEPENDENCIES} \
     && mv terragrunt_linux_amd64 /bin/terragrunt \
     && chmod +x /bin/terragrunt
 
+RUN TERRAGRUNT_ATLANTIS_CONFIG_VERSION=$(curl --silent "https://api.github.com/repos/transcend-io/terragrunt-atlantis-config/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | sed -E 's/v//') \
+    && cd /tmp \
+    && curl -LO https://github.com/transcend-io/terragrunt-atlantis-config/releases/download/v${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}/terragrunt-atlantis-config_${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}_linux_amd64.tar.gz \
+    && tar -zxvf terragrunt-atlantis-config_${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}_linux_amd64.tar.gz \
+    && mv /tmp/terragrunt-atlantis-config_${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}_linux_amd64/terragrunt-atlantis-config_${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}_linux_amd64 /bin/terragrunt-atlantis-config \
+    && chmod +x /bin/terragrunt-atlantis-config
+
 COPY ./version-info /usr/bin
 RUN chmod +x /usr/bin/version-info
+
+# Wrapper Script which tries to run git hooks if the repo cloned to atlantis include some in a certain directory.
+COPY post-checkout.sh /home/atlantis/hooks/post-checkout
+RUN chmod +x /home/atlantis/hooks/post-checkout
 
 WORKDIR /
