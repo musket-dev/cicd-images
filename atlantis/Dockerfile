@@ -27,8 +27,4 @@ RUN TERRAGRUNT_ATLANTIS_CONFIG_VERSION=$(curl --silent "https://api.github.com/r
 COPY ./version-info /usr/bin
 RUN chmod +x /usr/bin/version-info
 
-# Wrapper Script which tries to run git hooks if the repo cloned to atlantis include some in a certain directory.
-COPY post-checkout.sh /home/atlantis/hooks/post-checkout
-RUN chmod +x /home/atlantis/hooks/post-checkout
-
 WORKDIR /
