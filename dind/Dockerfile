@@ -1,7 +1,7 @@
 FROM docker:latest
 LABEL maintainer="Ryan <Ryan_goh@tech-gov-sg>" \
       description="Docker-in-Docker container for use in CI pipelines"
-ENV APK_DEPENDENCIES="bash curl git jq vim openssh build-base python3 python3-dev py3-pip python2-dev python2 py-pip openjdk8 mysql-client nss libffi-dev openssl-dev" \
+ENV APK_DEPENDENCIES="bash curl git jq vim openssh build-base python3 python3-dev py3-pip python2-dev python2 py-pip openjdk8 mysql-client nss libffi-dev openssl-dev rust cargo" \
     PIP_DEPENDENCIES="docker-compose" \
     PATHS_TO_REMOVE="\
       /usr/include/* \

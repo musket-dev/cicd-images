@@ -2,7 +2,7 @@ FROM alpine:3.12.1
 LABEL description="Google Kubernetes Engine deployer image for use in CI pipelines"
 ARG GCLOUD_SDK_VERSION="177.0.0"
 ARG GCLOUD_SDK_URL="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-${GCLOUD_SDK_VERSION}-linux-x86_64.tar.gz"
-ENV APK_DEPENDENCIES="build-base bash curl git jq vim python3 python3-dev py3-pip libffi-dev openssl-dev make docker " \
+ENV APK_DEPENDENCIES="build-base bash curl git jq vim python3 python3-dev py3-pip libffi-dev openssl-dev make docker rust cargo" \
     PIP_DEPENDENCIES="docker-compose" \
     DIR_INSTALL=/tmp
 ENV DIR_GCLOUD_SDK=${DIR_INSTALL}/google-cloud-sdk
