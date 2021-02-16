@@ -27,10 +27,10 @@ RUN addgroup -S ${GROUP} -g ${GROUPID} \
     ansible \
   && python3 -m ensurepip \
   && rm -r /usr/lib/python*/ensurepip \
-  && pip3 install --upgrade pip \
-  && pip3 install ansible-lint \
-  && pip3 install boto3 \
-  && pip3 install boto \
+  && pip3 install --no-cache-dir --upgrade pip \
+  && pip3 install --no-cache-dir ansible-lint \
+  && pip3 install --no-cache-dir boto3 \
+  && pip3 install --no-cache-dir boto \
   && ln -s /usr/bin/python3 /usr/bin/python \
   && rm -rf /usr/share/man/* \
     /usr/includes/* \
