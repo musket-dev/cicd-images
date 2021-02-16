@@ -13,6 +13,7 @@ ENV USERID="1101" \
   USER=${user} \
   GROUP=${group}
 
+# hadolint ignore=DL3018,DL3013
 RUN addgroup -S ${GROUP} -g ${GROUPID} \
   && adduser -D -S ${USER} -u ${USERID} -G ${GROUP} \
   && apk update \
