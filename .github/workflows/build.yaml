@@ -32,8 +32,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -54,8 +52,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -76,8 +72,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -98,8 +92,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -131,8 +123,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -157,8 +147,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -179,8 +167,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -201,8 +187,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -223,8 +207,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -248,8 +230,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -274,8 +254,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -296,8 +274,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -321,8 +297,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -347,8 +321,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -369,8 +341,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -391,8 +361,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -413,8 +381,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
@@ -435,8 +401,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Install dependencies
-        uses: ./.github/actions/install-dep
       - name: Dockerhub login
         run: docker login -u ${{ secrets.DH_USERNAME }} -p ${{ secrets.DH_PASSWORD }};
       - name: ECR public login
