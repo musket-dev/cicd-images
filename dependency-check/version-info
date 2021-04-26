@@ -1,0 +1,5 @@
+#!/bin/sh
+VERSION_DC="$(/usr/share/dependency-check/bin/dependency-check.sh --version | cut -d ' ' -f 4)";
+printf "dependency-check:${VERSION_DC}\n";
+UPDATES_HASH="$(md5sum /usr/share/dependency-check/data/odc.mv.db | cut -d ' ' -f 1)"
+printf "database:${UPDATES_HASH}\n";
