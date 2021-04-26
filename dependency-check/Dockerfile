@@ -6,6 +6,7 @@ COPY ./version-info /usr/bin
 
 RUN chmod +x /usr/bin/version-info
 
-USER 1000
+ # Remove setting user to 1000 as github action requires root user to mount /github/workspace
+# USER 1000
 
 ENTRYPOINT [ "/usr/share/dependency-check/bin/dependency-check.sh"]
