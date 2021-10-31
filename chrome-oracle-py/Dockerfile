@@ -25,7 +25,7 @@ ADD utils/headless-chrome /usr/bin/headless-chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
     && apt-get update \
-    && apt-get -y install libxi6 libgconf-2-4 \
+    && apt-get -y install apt-transport-https ca-certificates libxi6 libgconf-2-4 \
     && apt-get -y install google-chrome-stable
 
 RUN chmod a+x /usr/bin/headless-chrome && \
@@ -44,12 +44,12 @@ RUN CHROME_VERSION=$(chrome --version | cut -d. -f-3) \
 # -----------------------------
 # install oracle
 # -----------------------------
-ARG ORACLE_VERSION=12.2.0.1.0 
+ARG ORACLE_VERSION=12.2.0.1.0
 ENV ORACLE_VERSION=${ORACLE_VERSION}
 
  #TODO: make instantclient_12_2 a variable based on ORACLE_VERSION
 ENV LD_LIBRARY_PATH=/opt/oracle/instantclient_12_2 \
-    LD_RUN_PATH=$LD_LIBRARY_PATH 
+    LD_RUN_PATH=$LD_LIBRARY_PATH
 
 COPY instantclient/${ORACLE_VERSION}/* /tmp/
 
