@@ -2,7 +2,7 @@ ARG REPO_TAG="lts-alpine"
 FROM node:${REPO_TAG}
 LABEL maintainer="zephinzer <dev-at-joeir-dot-net>" \
       description="Image used for running Karma with ChromeHeadless browser. Requires the --no-sandbox flag to be specified to work."
-ENV APK_DEPENDENCIES="bash curl git jq vim chromium zlib-dev xvfb dbus mesa-dri-swrast udev ttf-freefont python make g++" \
+ENV APK_DEPENDENCIES="bash curl git jq vim chromium zlib-dev xvfb dbus mesa-dri-swrast udev ttf-freefont python2 make g++" \
     CHROME_BIN=/usr/bin/chromium-browser \
     CHROME_PATH=/usr/lib/chromium \
     PATHS_TO_REMOVE="\
