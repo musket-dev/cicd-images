@@ -1,4 +1,4 @@
-ARG alpine_ver=3.13.1
+ARG alpine_ver=3.15.0
 FROM alpine:${alpine_ver}
 LABEL maintainer="salihan" \
       description="Image containing Ansible and Ansible-lint for use in CI/CD pipelines"
@@ -25,10 +25,10 @@ RUN addgroup -S ${GROUP} -g ${GROUPID} \
     zip \
     bash \
     ansible \
+    ansible-lint \
   && python3 -m ensurepip \
   && rm -r /usr/lib/python*/ensurepip \
   && pip3 install --no-cache-dir --upgrade pip \
-  && pip3 install --no-cache-dir ansible-lint \
   && pip3 install --no-cache-dir boto3 \
   && pip3 install --no-cache-dir boto \
   && ln -s /usr/bin/python3 /usr/bin/python \
