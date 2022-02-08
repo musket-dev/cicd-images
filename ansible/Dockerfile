@@ -18,17 +18,23 @@ RUN addgroup -S ${GROUP} -g ${GROUPID} \
   && adduser -D -S ${USER} -u ${USERID} -G ${GROUP} \
   && apk update \
   && apk add --no-cache python3 \
+    python3-dev \
+    musl-dev \
+    libffi-dev \
+    openssl-dev \
+    make \
     openssh-client \
     sudo \
     curl \
     gcc \
     zip \
     bash \
-    ansible \
-    ansible-lint \
+    git \
   && python3 -m ensurepip \
   && rm -r /usr/lib/python*/ensurepip \
   && pip3 install --no-cache-dir --upgrade pip \
+  && pip3 install --no-cache-dir ansible \
+  && pip3 install --no-cache-dir ansible-lint \
   && pip3 install --no-cache-dir boto3 \
   && pip3 install --no-cache-dir boto \
   && ln -s /usr/bin/python3 /usr/bin/python \
