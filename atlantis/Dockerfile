@@ -1,4 +1,6 @@
-FROM runatlantis/atlantis
+# Pin a version as atlantis:latest doesn't link to actual latest
+FROM runatlantis/atlantis:v0.18.4
+
 LABEL maintainer="Ryan <ryangohjq.dev-at-gmail-com>" \
       description="Atlantis docker image with customizations"
 ENV APK_DEPENDENCIES="curl" \
