@@ -5,3 +5,5 @@ VERSION_FIREFOX="$(firefox --version | cut -d ' ' -f 3)";
 printf "firefox:${VERSION_FIREFOX}\n";
 VERSION_CYPRESS="$(ls /root/.cache/Cypress)"
 printf "cypress:${VERSION_CYPRESS}\n";
+VERSION_NODE="$(node --version | cut -d 'v' -f2)"
+printf "node:${VERSION_NODE}\n";
