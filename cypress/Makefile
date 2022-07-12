@@ -13,8 +13,11 @@ up: build
 down:
 	@docker stop ${NAME_LOCAL}
 
-test: build
-	@docker run -t --name ${NAME_TEST} -v ${TEST_PATH}:/app/test --entrypoint /bin/bash ${TAG_LOCAL} -c "cd /app/test && ./init.sh"
+hold-it: build
+	@docker run -t --rm --name ${NAME_TEST} -v ${TEST_PATH}:/app/test --entrypoint /bin/bash ${TAG_LOCAL} -c "tail -f /dev/null"
+
+test-it: build
+	@docker run -t --rm --name ${NAME_TEST} -v ${TEST_PATH}:/app/test --entrypoint /bin/bash ${TAG_LOCAL} -c "cd /app/test && ./init.sh"
 
 conn:
 	@docker exec -it ${NAME_LOCAL} /bin/bash

@@ -1,4 +1,7 @@
-FROM cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
+# see build.yaml for actual version passed from pipeline
+ARG NODE_VERSION="14.17.6"
+
+FROM cypress/browsers:node${NODE_VERSION}-slim-chrome100-ff99-edge
 
 LABEL description="Image used for running Cypress testing framework"
 

@@ -144,6 +144,9 @@ jobs:
       IMAGE_NAME: cypress
     runs-on: ubuntu-latest
     name: cypress
+    strategy:
+      matrix:
+        node-version: [ 14.17.6, 16.14.2 ]
     steps:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx
@@ -154,9 +157,13 @@ jobs:
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
         if: "!contains(github.event.head_commit.message, '[force build]')"
+        with:
+          docker_build_args: NODE_VERSION=${{ matrix.node-version }}
         uses: ./.github/actions/build-and-publish
       - name: Build and Publish (force)
         if: "contains(github.event.head_commit.message, '[force build]')"
+        with:
+          docker_build_args: NODE_VERSION=${{ matrix.node-version }}
         uses: ./.github/actions/build-and-publish-force
 
   dephash:
