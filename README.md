@@ -29,6 +29,7 @@ https://gallery.ecr.aws/l5k6t5t7/cicd-images
 - Sqlplus (`sqlplus`)
 - Trinity (`awscli` + `docker` + `kubectl`)
 - Version Tagging Scripts (`vtscripts`)
+- K6 load testing (`k6`)
 
 ### Release Notes
 
@@ -220,6 +221,15 @@ See https://github.com/govtechsg/version-tagging-scripts for more information on
 - `get-latest -q`
 - `get-next -q`
 - `iterate -q`
+
+#### `K6`
+
+Canonical Tag: `k6-<K6_VERSION>` \
+Latest URL: `govtechsg/cicd-images:k6-latest`
+
+##### Notes
+
+This image helps to implement the load testing using K6. Check here for more info https://k6.io/docs/
 
 ## Other Uses
 
