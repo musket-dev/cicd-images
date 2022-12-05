@@ -442,9 +442,9 @@ jobs:
 
   k6:
     env:
-      IMAGE_NAME: k6
+      IMAGE_NAME: alpine
     runs-on: ubuntu-latest
-    name: k6
+    name: alpine
     steps:
       - uses: actions/checkout@v1
       - name: Set up Docker Buildx

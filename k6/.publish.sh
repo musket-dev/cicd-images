@@ -6,11 +6,8 @@ TAG_LATEST="${REPOSITORY_URL}-latest";
 
 VERSIONS=$(docker run --entrypoint="version-info" ${TAG});
 echo $VERSIONS
-VERSION_CHROME=$(printf "${VERSIONS}" | grep chrome | cut -f 2 -d ':');
-VERSION_FIREFOX=$(printf "${VERSIONS}" | grep firefox | cut -f 2 -d ':');
 VERSION_K6=$(printf "${VERSIONS}" | grep k6 | cut -f 2 -d ':');
-EXISTENCE_TAG="${VERSION_K6}_chrome-${VERSION_CHROME}_firefox-${VERSION_FIREFOX}";
-EXISTENCE_REPO_URL="${REPOSITORY_URL}-${EXISTENCE_TAG}";
+EXISTENCE_REPO_URL="${REPOSITORY_URL}-${VERSION_K6}";
 
 printf "Checking existence of [${EXISTENCE_REPO_URL}]...";
 _="$(docker pull "${EXISTENCE_REPO_URL}")" && EXISTS=$?;
