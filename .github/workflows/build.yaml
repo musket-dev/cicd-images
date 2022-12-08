@@ -443,9 +443,6 @@ jobs:
   k6:
     env:
       IMAGE_NAME: k6
-    strategy:
-      matrix:
-        node-version: [14, 16, 18, lts]
     runs-on: ubuntu-latest
     name: k6
     steps:
@@ -458,11 +455,7 @@ jobs:
         run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
       - name: Build and Publish
         if: "!contains(github.event.head_commit.message, '[force build]')"
-        with:
-          docker_build_args: NODE_VERSION=${{ matrix.node-version }}
         uses: ./.github/actions/build-and-publish
       - name: Build and Publish (force)
         if: "contains(github.event.head_commit.message, '[force build]')"
-        with:
-          docker_build_args: NODE_VERSION=${{ matrix.node-version }}
         uses: ./.github/actions/build-and-publish-force
