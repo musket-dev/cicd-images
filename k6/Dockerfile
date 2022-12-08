@@ -1,4 +1,5 @@
-FROM cypress/browsers:node14.15.0-chrome96-ff94
+ARG ALPINE_VERSION="latest"
+FROM alpine:${ALPINE_VERSION}
 
 LABEL description="Image used for running k6 for load testing"
 
