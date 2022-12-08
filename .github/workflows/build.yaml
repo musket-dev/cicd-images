@@ -442,7 +442,10 @@ jobs:
 
   k6:
     env:
-      IMAGE_NAME: alpine
+      IMAGE_NAME: k6
+    strategy:
+      matrix:
+        node-version: [14, 16, 18, lts]
     runs-on: ubuntu-latest
     name: k6
     steps:

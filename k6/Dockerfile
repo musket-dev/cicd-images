@@ -1,10 +1,8 @@
-ARG ALPINE_VERSION="latest"
-FROM alpine:${ALPINE_VERSION}
+FROM  loadimpact/k6:latest
 
 LABEL description="Image used for running k6 for load testing"
 
 RUN npm install -g k6
-RUN npx k6 install
 
 COPY ./version-info /usr/bin
 
