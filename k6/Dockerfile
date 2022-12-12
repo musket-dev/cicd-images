@@ -1,4 +1,5 @@
 FROM  grafana/k6:latest
+FROM node:latest
 
 LABEL description="Image used for running k6 for load testing"
 
