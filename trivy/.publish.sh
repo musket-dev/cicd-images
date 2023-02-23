@@ -7,7 +7,7 @@ TAG_LATEST="${REPOSITORY_URL}-latest";
 VERSIONS=$(docker run --entrypoint="version-info" ${TAG});
 VERSION_TRIVY=$(printf "${VERSIONS}" | grep trivy | cut -f 2 -d ':');
 VERSION_AWS=$(printf "${VERSIONS}" | grep aws | cut -f 2 -d ':');
-TRIVY_VERSION_REPO_URL="${REPOSITORY_URL}-${VERSION_TRIVY}";
+TRIVY_VERSION_REPO_URL="${REPOSITORY_URL}-${VERSION_TRIVY}-${VERSION_AWS}";
 
 printf "Checking existence of [${TRIVY_VERSION_REPO_URL}]...";
 _="$(docker pull "${TRIVY_VERSION_REPO_URL}")" && EXISTS=$?;

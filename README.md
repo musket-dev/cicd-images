@@ -249,7 +249,7 @@ Latest URL: `govtechsg/cicd-images:k6-latest`
 
 #### `trivy`
 
-Canonical Tag: `trivy-<K6_VERSION>` \
+Canonical Tag: `trivy-<TRIVY_VERSION>-<AWS_CLI_VERSION>` \
 Latest URL: `govtechsg/cicd-images:trivy-latest`
 
 ##### Notes
