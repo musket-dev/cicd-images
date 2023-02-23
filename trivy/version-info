@@ -1,0 +1,5 @@
+#!/bin/sh
+VERSION_TRIVY="$(trivy --version | cut -f 2 -d ' ')";
+VERSION_AWS=$(aws --v | cut -f 1 -d ' ' | cut -f 2 -d '/')
+printf "trivy:${VERSION_TRIVY}\n";
+printf "aws:${VERSION_AWS}\n";

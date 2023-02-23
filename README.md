@@ -15,7 +15,8 @@ https://gallery.ecr.aws/l5k6t5t7/cicd-images
 - Alpine Linux (`alpine`)
 - Ansible (`ansible`)
 - Atlantis (`atlantis`)
-- Amazon Web Services CLI (`awscli`): no longer maintained; use the official image from AWS, https://hub.docker.com/r/amazon/aws-cli
+- Amazon Web Services CLI (`awscli`): no longer maintained; use the official image from
+  AWS, https://hub.docker.com/r/amazon/aws-cli
 - Cypress (`cypress`)
 - Docker-in-Docker (`dind`)
 - Google Kubernetes Engine CLI (`gkecli`)
@@ -33,11 +34,15 @@ https://gallery.ecr.aws/l5k6t5t7/cicd-images
 
 ### Release Notes
 
-The images are found in the [DockerHub registry](https://hub.docker.com/r/govtechsg/cicd-images), and the names of the different types of images are added as a tag. For example given a type of image called `xyz`, it will be available under the repository URL `govtechsg/cicd-images:xyz-latest`. Specific versions can be found in the [DockerHub Tags page](https://hub.docker.com/r/govtechsg/cicd-images/tags/)
+The images are found in the [DockerHub registry](https://hub.docker.com/r/govtechsg/cicd-images), and the names of the
+different types of images are added as a tag. For example given a type of image called `xyz`, it will be available under
+the repository URL `govtechsg/cicd-images:xyz-latest`. Specific versions can be found in
+the [DockerHub Tags page](https://hub.docker.com/r/govtechsg/cicd-images/tags/)
 
 ### Universal Tooling
 
-All images will contain some tools essential for most operations that will happen in a continuous integration/delivery pipeline. These tools are:
+All images will contain some tools essential for most operations that will happen in a continuous integration/delivery
+pipeline. These tools are:
 
 - `bash`
 - `curl`
@@ -54,7 +59,9 @@ Latest URL: `govtechsg/cicd-images:alpine-latest`
 
 ##### Notes
 
-We use Alpine for our production deployments, only makes sense to run stuff in Alpine. This image contains common tools in pipelines and should serve most general needs. If you need more pacakges, feel free to submit a pull request with the required APK packages.
+We use Alpine for our production deployments, only makes sense to run stuff in Alpine. This image contains common tools
+in pipelines and should serve most general needs. If you need more pacakges, feel free to submit a pull request with the
+required APK packages.
 
 #### `ansible`
 
@@ -63,7 +70,8 @@ Latest URL: `govtechsg/cicd-images:ansible-latest`
 
 ##### Notes
 
-This image also contains Ansible-lint and Boto3 so you can lint your Ansible playbooks and use Ansible playbooks to automate stuff on AWS respectively
+This image also contains Ansible-lint and Boto3 so you can lint your Ansible playbooks and use Ansible playbooks to
+automate stuff on AWS respectively
 
 #### `atlantis`
 
@@ -79,12 +87,11 @@ Latest URL: `govtechsg/cicd-images:cypress-latest`
 
 #### `playwright`
 
-
-
 ##### Notes
 
 - Playwright is an automation tool used for the integration tests (similar to Cypress)
-- We decided to use Playwright to simulate concurrent sessions which Cypress cannot simulate due to it's architectural limitation
+- We decided to use Playwright to simulate concurrent sessions which Cypress cannot simulate due to it's architectural
+  limitation
 - This concurrent session tests are required to test the Singpass single active session rule
 - More info about Playwright: https://playwright.dev/docs/intro
 
@@ -96,7 +103,8 @@ Latest URL: `govtechsg/cicd-images:pandoc-latest`
 ##### Notes
 
 - Pandoc is a conversion library used to convert markdown files to PPTX
-- We use Pandoc to generate our sprint review slides by automating the process of pulling data from our Pivotal story board
+- We use Pandoc to generate our sprint review slides by automating the process of pulling data from our Pivotal story
+  board
 - More info about Pandoc: https://pandoc.org/getting-started.html
 
 #### `dephash`
@@ -106,7 +114,8 @@ Latest URL: `govtechsg/cicd-images:dephash-latest`
 
 ##### Notes
 
-See https://github.com/govtechsg/version-tagging-scripts for more information on using this. Commands are symbolic linked to the system variable directory so you can use the following commands:
+See https://github.com/govtechsg/version-tagging-scripts for more information on using this. Commands are symbolic
+linked to the system variable directory so you can use the following commands:
 
 - `dephash ./path/to/file --npm`
 - `dephash ./path/to/file --npm --prod`
@@ -120,7 +129,8 @@ Latest URL: `govtechsg/cicd-images:dind-latest`
 
 ##### Notes
 
-You will need to configure this image so that the host file at path `/var/run/docker.sock` is mapped to the `/var/run/docker.sock` in the container.
+You will need to configure this image so that the host file at path `/var/run/docker.sock` is mapped to
+the `/var/run/docker.sock` in the container.
 
 - https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
 - https://www.develves.net/blogs/asd/2016-05-27-alternative-to-docker-in-docker/
@@ -133,7 +143,8 @@ Latest URL: `govtechsg/cicd-images:gkecli-latest`
 
 ##### Notes
 
-An additional child image, or a script should be added to this to set Google credentials and retrieve the Kubernetes configurations.
+An additional child image, or a script should be added to this to set Google credentials and retrieve the Kubernetes
+configurations.
 
 - https://cloud.google.com/kubernetes-engine/docs/quickstart
 
@@ -144,7 +155,8 @@ Latest URL: `govtechsg/cicd-images:karma-latest`
 
 ##### Notes
 
-Karma is not included in the `karma` image, this image only provides the base for it to run ChromeHeadless. Remember to include the `--no-sandbox` flag in the Karma configuration.
+Karma is not included in the `karma` image, this image only provides the base for it to run ChromeHeadless. Remember to
+include the `--no-sandbox` flag in the Karma configuration.
 
 #### `kubectl`
 
@@ -177,29 +189,36 @@ Canonical Tag: `chrome-oracle-py-<ORACLE_VERSION>-<PYTHON_VERSION>` \
 Latest URL: `govtechsg/cicd-images:chrome-oracle-py-<ORACLE_VERSION>-<PYTHON_VERSION>-latest`
 
 Python Versions:
+
 * 2.7
 * 3.6
 * 3.7
 
 Oracle Versions:
+
 * 12.2.0.1.0
 
 ##### Notes
-* Versions available are listed [here](https://hub.docker.com/_/python/). The downloaded python image version will be as follows: python:${PYTHON_VERSION}-slim-stretch
+
+* Versions available are listed [here](https://hub.docker.com/_/python/). The downloaded python image version will be as
+  follows: python:${PYTHON_VERSION}-slim-stretch
 * For use as a base image for robot regression frameworks.
-  1. pip freeze > requirements.txt in regression project folder
-  2. Add this instruction to your regression Dockerfile
-      ```
-      COPY requirements.txt ./
-      RUN pip install -r requirements.txt
-      ```
-      Or just just mount requirements.txt to container and include `pip install -r requirements.txt` in your entrypoint.
+    1. pip freeze > requirements.txt in regression project folder
+    2. Add this instruction to your regression Dockerfile
+        ```
+        COPY requirements.txt ./
+        RUN pip install -r requirements.txt
+        ```
+       Or just just mount requirements.txt to container and include `pip install -r requirements.txt` in your
+       entrypoint.
 
 #### `sqlplus`
+
 Canonical Tag: `sqlplus-<ORACLE_VERSION>` \
 Latest URL: `govtechsg/cicd-images:sqlplus-<ORACLE_VERSION>-latest`
 
 Oracle Versions:
+
 * 12.2
 
 #### `trinity`
@@ -214,7 +233,8 @@ Latest URL: `govtechsg/cicd-images:vtscripts-latest`
 
 ##### Notes
 
-See https://github.com/govtechsg/version-tagging-scripts for more information on using this. Commands are symbolic linked to the system variable directory so you can use the following commands:
+See https://github.com/govtechsg/version-tagging-scripts for more information on using this. Commands are symbolic
+linked to the system variable directory so you can use the following commands:
 
 - `init -q`
 - `get-branch -q`
@@ -226,6 +246,11 @@ See https://github.com/govtechsg/version-tagging-scripts for more information on
 
 Canonical Tag: `k6-<K6_VERSION>` \
 Latest URL: `govtechsg/cicd-images:k6-latest`
+
+#### `trivy`
+
+Canonical Tag: `trivy-<K6_VERSION>` \
+Latest URL: `govtechsg/cicd-images:trivy-latest`
 
 ##### Notes
 
@@ -255,7 +280,8 @@ IMAGE_NAME="dind"
 
 ### For Publishing
 
-The publish script in each directory sends your built image to DockerHub and relies on the `./.scripts/.build.sh` script being run prior to it. The general format of usage:
+The publish script in each directory sends your built image to DockerHub and relies on the `./.scripts/.build.sh` script
+being run prior to it. The general format of usage:
 
 ```bash
 DH_REPO=__URL_TO_REPO__
