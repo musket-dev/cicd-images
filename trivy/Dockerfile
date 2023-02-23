@@ -6,6 +6,6 @@ ENV APK_DEPENDENCIES="aws-cli"
 
 COPY ./version-info /usr/bin/
 RUN apk --no-cache update \
-    && apk add --no-cache upgrade \
+    && apk --no-cache upgrade \
     && apk add --no-cache ${APK_DEPENDENCIES} \
     && chmod +x /usr/bin/version-info \
