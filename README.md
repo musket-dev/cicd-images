@@ -2,13 +2,11 @@
 
 ![Build and Publish](https://github.com/govtechsg/cicd-images/workflows/build%20and%20publish/badge.svg)
 
-This repository is a collection of Docker images we use internally for continuous integration/delivery pipelines.
+This repository is a collection of container images we use internally for continuous integration/delivery pipelines.
 
-Daily builds are run against these images and automatically sent to our DockerHub and the public ECR repository at
+Daily builds are run against these images and automatically sent to our public ECR repository at
 
-https://hub.docker.com/r/govtechsg/cicd-images
-
-https://gallery.ecr.aws/l5k6t5t7/cicd-images
+https://gallery.ecr.aws/govtechsg/cicd-images/
 
 ## Catalog (Alphabetical Order)
 
@@ -34,10 +32,10 @@ https://gallery.ecr.aws/l5k6t5t7/cicd-images
 
 ### Release Notes
 
-The images are found in the [DockerHub registry](https://hub.docker.com/r/govtechsg/cicd-images), and the names of the
+The images are found in the [Public ECR](public.ecr.aws/govtechsg/cicd-images), and the names of the
 different types of images are added as a tag. For example given a type of image called `xyz`, it will be available under
-the repository URL `govtechsg/cicd-images:xyz-latest`. Specific versions can be found in
-the [DockerHub Tags page](https://hub.docker.com/r/govtechsg/cicd-images/tags/)
+the repository URL `public.ecr.aws/govtechsg/cicd-images:xyz-latest`. Specific versions can be found in
+https://gallery.ecr.aws/govtechsg/cicd-images/
 
 ### Universal Tooling
 
@@ -129,8 +127,8 @@ Latest URL: `govtechsg/cicd-images:dind-latest`
 
 ##### Notes
 
-You will need to configure this image so that the host file at path `/var/run/docker.sock` is mapped to
-the `/var/run/docker.sock` in the container.
+To use this image, you will need to configure this image so that the host file at path `/var/run/docker.sock` is mapped to
+the `/var/run/docker.sock` in the container. (This is a privilege mode and not recommended for production use.)
 
 - https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
 - https://www.develves.net/blogs/asd/2016-05-27-alternative-to-docker-in-docker/
@@ -257,6 +255,8 @@ Latest URL: `govtechsg/cicd-images:trivy-latest`
 This image helps to implement the load testing using K6. Check here for more info https://k6.io/docs/
 
 ## Other Uses
+
+NOTE: Using Dockerhub flow for local testing, actual flow is using AWS ECR.
 
 Images specified here can be uploaded to other repositories if you so wish. The commands are:
 
