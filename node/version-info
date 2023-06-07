@@ -17,5 +17,5 @@ printf "npm:${VERSION_NPM}\n";
 VERSION_YARN="$(yarn --version)";
 printf "yarn:${VERSION_YARN}\n";
 
-VERSION_AWSCLI="$(aws --version | cut -f 0 -d ' ')";
-printf "awscli:${VERSION_AWS}\n";
+VERSION_AWSCLI="$(aws --version | cut -f 1 -d ' ' | cut -f 2 -d '/')";
+printf "awscli:${VERSION_AWSCLI}\n";
