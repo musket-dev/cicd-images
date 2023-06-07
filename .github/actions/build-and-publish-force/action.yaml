@@ -1,4 +1,4 @@
-name: 'build and publish firce'
+name: 'build and publish force'
 description: 'Builds and Publish the docker image with force push'
 inputs:
   docker_build_args:  # id of input
