@@ -10,7 +10,8 @@ VERSION_NODE_MINOR=$(printf "${VERSIONS}" | grep -e 'node_minor:' | cut -f 2 -d 
 VERSION_NODE_PATCH=$(printf "${VERSIONS}" | grep -e 'node_patch:' | cut -f 2 -d ':');
 VERSION_NPM=$(printf "${VERSIONS}" | grep npm | cut -f 2 -d ':');
 VERSION_YARN=$(printf "${VERSIONS}" | grep yarn | cut -f 2 -d ':');
-EXISTENCE_TAG="node-${VERSION_NODE}_npm-${VERSION_NPM}_yarn-${VERSION_YARN}";
+VERSION_AWSCLI=$(printf "${VERSIONS}" | grep awscli | cut -f 2 -d ':');
+EXISTENCE_TAG="node-${VERSION_NODE}_npm-${VERSION_NPM}_yarn-${VERSION_YARN}_awscli-${VERSION_AWSCLI}";
 EXISTENCE_REPO_URL="${REPOSITORY_URL}-${EXISTENCE_TAG}";
 NODE_VERSION_REPO_URL="${REPOSITORY_URL}-${VERSION_NODE}";
 
