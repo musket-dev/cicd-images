@@ -2,7 +2,7 @@ ARG NODE_MAJOR_VERSION="18"
 FROM node:${NODE_MAJOR_VERSION}-alpine
 LABEL maintainer="zephinzer <dev-at-joeir-dot-net>" \
       description="Node ${NODE_MAJOR_VERSION}.* container for use in CI pipelines"
-ENV APK_DEPENDENCIES="bash curl git jq vim make aws-cli g++" \
+ENV APK_DEPENDENCIES="bash curl git jq vim make aws-cli g++ zip" \
     PATHS_TO_REMOVE="\
       /usr/include/* \
       /usr/share/man/* \
