@@ -14,7 +14,10 @@ RUN npm install -g cypress mysql pg \
                    cypress-promise \
                    cypress-xpath \
                    eslint @faker-js/faker@5.5.3 fs-extra moment prettier dotenv \
-                   lodash date-fns cypress-fail-fast axios glob js-yaml
+                   lodash date-fns cypress-fail-fast axios glob js-yaml @govtechsg/purple-hats
+
+# Install purpleHATS in the global node_modules
+RUN npm install --prefix $(npm root -g)/@govtechsg/purple-hats
 
 COPY ./version-info /usr/bin
 
