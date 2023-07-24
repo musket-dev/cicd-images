@@ -35,7 +35,8 @@ RUN chmod a+x /usr/bin/headless-chrome && \
     && ln -s /opt/google/chrome/google-chrome-browser /usr/bin/chrome \
     && ln -s /usr/bin/headless-chrome /usr/bin/google-chrome
 
-RUN CHROME_VERSION=$(chrome --version | cut -d. -f-3) \
+RUN CHROME_VERSION=$(chrome --version | cut -d' ' -f 3 | cut -d. -f 1) \
+    && CHROME_VERSION=$(($CHROME_VERSION - 1)) \
     && CHROMEDRIVER_VERSION=$(curl https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION##* }) \
     && curl -SLO "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" \
     && unzip "chromedriver_linux64.zip" -d /usr/local/bin \
