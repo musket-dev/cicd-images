@@ -35,9 +35,11 @@ RUN chmod a+x /usr/bin/headless-chrome && \
     && ln -s /opt/google/chrome/google-chrome-browser /usr/bin/chrome \
     && ln -s /usr/bin/headless-chrome /usr/bin/google-chrome
 
+#&& CHROMEDRIVER_VERSION=$(curl https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION##* }) \
+#Hardcoding to 114 as there isn't any 115 driver for a while...
 RUN CHROME_VERSION=$(chrome --version | cut -d' ' -f 3 | cut -d. -f 1) \
     && CHROME_VERSION=$(($CHROME_VERSION - 1)) \
-    && CHROMEDRIVER_VERSION=$(curl https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION##* }) \
+    && CHROMEDRIVER_VERSION=$(curl https://chromedriver.storage.googleapis.com/LATEST_RELEASE_114) \
     && curl -SLO "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" \
     && unzip "chromedriver_linux64.zip" -d /usr/local/bin \
     && rm "chromedriver_linux64.zip"
