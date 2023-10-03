@@ -209,14 +209,14 @@ jobs:
         uses: ./.github/actions/build-and-publish-force
 
   # this is required as 1.21 uses bullseye and golang tags no longer work with buster since 1.20 
-  go-pact-1-21:
+  go-pact-bullseye:
     env:
-      IMAGE_NAME: go-pact-1.21
+      IMAGE_NAME: go-pact-bullseye
     runs-on: ubuntu-latest
     strategy:
       matrix:
         go-version: ['1.21']
-    name: go-pact
+    name: go-pact-bullseye
     steps:
       - uses: actions/checkout@v3
       - name: Set up Docker Buildx
