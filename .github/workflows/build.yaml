@@ -208,6 +208,32 @@ jobs:
           docker_build_args: GOLANG_MAJOR_VERSION=${{ matrix.go-version }}
         uses: ./.github/actions/build-and-publish-force
 
+  # this is required as 1.21 uses bullseye and golang tags no longer work with buster since 1.20 
+  go-pact-1-21:
+    env:
+      IMAGE_NAME: go-pact-1.21
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go-version: ['1.21']
+    name: go-pact
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: ECR public login
+        run: /usr/local/bin/aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
+      - name: Build and Publish
+        if: "!contains(github.event.head_commit.message, '[force build]')"
+        with:
+          docker_build_args: GOLANG_MAJOR_VERSION=${{ matrix.go-version }}
+        uses: ./.github/actions/build-and-publish
+      - name: Build and Publish (force)
+        if: "contains(github.event.head_commit.message, '[force build]')"
+        with:
+          docker_build_args: GOLANG_MAJOR_VERSION=${{ matrix.go-version }}
+        uses: ./.github/actions/build-and-publish-force
+
   karma:
     env:
       IMAGE_NAME: karma
